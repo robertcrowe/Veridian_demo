@@ -1,4 +1,4 @@
-# mistral-it-agent
+# Veridian Demo
 
 A full end-to-end demo showing how **Mistral Classifier Factory** reduces tool call
 overhead in a production agentic loop — using Veridian Systems, a fictional B2B SaaS
