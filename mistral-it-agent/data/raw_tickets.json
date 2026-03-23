@@ -1,0 +1,482 @@
+[
+  {
+    "id": "INC-0001",
+    "text": "Hi IT, I need read/write access to Nexus for the payments-service namespace. I just joined the backend team and can't pull our internal libs to build locally. My GitHub handle is @lena-okoye.",
+    "intent": "access_request",
+    "priority": "P2",
+    "resolved_by": "DevOps Team",
+    "resolution_summary": "Provisioned lena.okoye@veridian.io with read/write access to the payments-service and shared-libs namespaces in Nexus. Confirmed pull working within 2 hours."
+  },
+  {
+    "id": "INC-0002",
+    "text": "I need Prism access to run our Q3 cohort analysis. I should have analyst-tier read access but the Prism login page is rejecting my Okta credentials with 'access denied'. Manager is Daniel Wu.",
+    "intent": "access_request",
+    "priority": "P2",
+    "resolved_by": "Data Platform Team",
+    "resolution_summary": "Analyst-tier Prism role was missing from onboarding Okta group. Added nina.vasquez@veridian.io to the prism-analysts Okta group; access restored."
+  },
+  {
+    "id": "INC-0003",
+    "text": "We have a contractor from TechFlow starting Monday to help on the API migration. They need GitHub org access (read on all repos, write on api-gateway) and Jira access for the APIMIG project. Contract end date is Dec 31.",
+    "intent": "access_request",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Created contractor GitHub account with specified scopes and time-limited Jira access expiring 2024-12-31. Sent onboarding instructions to contractor."
+  },
+  {
+    "id": "INC-0004",
+    "text": "I'm on SRE and need read access to the prod AWS account for incident investigation. Currently I can only see staging. Helix shows I'm on-call next week and I won't be able to investigate production issues without this.",
+    "intent": "access_request",
+    "priority": "P2",
+    "resolved_by": "Platform Engineering",
+    "resolution_summary": "Granted SRE prod-read IAM role to kai.anderson@veridian.io in the production AWS account. Access verified against on-call schedule in Helix."
+  },
+  {
+    "id": "INC-0005",
+    "text": "Please remove all system access for Raj Patel (raj.patel@veridian.io) immediately. His last day was today — GitHub, Nexus, AWS, Okta, Slack, Prism, everything. HR has confirmed the termination.",
+    "intent": "access_request",
+    "priority": "P1",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "All access revoked within 30 minutes: Okta account disabled (cascades to all SSO apps), GitHub org membership removed, AWS IAM keys rotated, Nexus and Prism sessions terminated, Slack deactivated."
+  },
+  {
+    "id": "INC-0006",
+    "text": "Can I get added to the INFRA Jira project? I'm a PM and my team now owns infrastructure initiatives but I can't see any INFRA tickets. I can see PRODUCT and GROWTH just fine.",
+    "intent": "access_request",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Added sarah.kim@veridian.io to the INFRA Jira project with Reporter and Viewer permissions, per manager approval from the DevOps lead."
+  },
+  {
+    "id": "INC-0007",
+    "text": "I transferred to the Austin team last month but my VPN profile still connects me to the London gateway. I'm getting 400-500ms latency to all internal services including Nexus and Prism. Is there a US-East gateway I should be on?",
+    "intent": "access_request",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Updated GlobalProtect VPN profile for tom.eriksen@veridian.io to use the US-East gateway. Latency to internal services dropped to ~15ms post-switch."
+  },
+  {
+    "id": "INC-0008",
+    "text": "I need Okta admin access. I manage several SaaS tools for my team and submitting tickets every time I need to add a user is slowing us down significantly. Happy to do a call to explain the use case.",
+    "intent": "access_request",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Full Okta admin access not granted per security policy. Instead, provisioned app-admin role scoped to the three SaaS tools the requestor manages. Setup call completed."
+  },
+  {
+    "id": "INC-0009",
+    "text": "Got a very convincing phishing email pretending to be DocuSign asking me to review a contract. The link URL was 'docusign-verify-contract.net' not docusign.com. I didn't click it but several people on the finance team might have — flagging urgently.",
+    "intent": "security_incident",
+    "priority": "P2",
+    "resolved_by": "Security Team",
+    "resolution_summary": "SEV2 declared. Quarantined the phishing email across all inboxes via Microsoft Defender. 3 finance team members confirmed to have clicked the link — forced password resets and MFA re-enrollment. No credentials successfully harvested."
+  },
+  {
+    "id": "INC-0010",
+    "text": "I just got an Okta 'new sign-in' alert for my account from an IP geolocated to Bucharest, Romania. I have never been to Romania and I didn't initiate this login. Flagging as suspicious right now.",
+    "intent": "security_incident",
+    "priority": "P2",
+    "resolved_by": "Security Team",
+    "resolution_summary": "SEV2 raised. Okta session terminated and all tokens revoked immediately. Investigation confirmed the login used a valid password, likely from credential stuffing. Password reset forced, MFA re-enrolled, no data access confirmed in audit logs."
+  },
+  {
+    "id": "INC-0011",
+    "text": "My work MacBook Pro M3 (asset VRD-ENG-0441) was stolen from my car last night. FileVault was enabled. I had Slack, GitHub, and Nexus open in browser tabs when I last used it. Please escalate — this is urgent.",
+    "intent": "security_incident",
+    "priority": "P1",
+    "resolved_by": "Security Team",
+    "resolution_summary": "SEV2 declared. Remote wipe triggered via Jamf within 15 minutes of report. All active browser sessions, GitHub tokens, and Nexus credentials revoked. FileVault confirmed enabled — disk contents protected. Police report filed, asset decommissioned."
+  },
+  {
+    "id": "INC-0012",
+    "text": "URGENT: I accidentally committed AWS credentials for the prod-payments service account to a public GitHub repo 10 minutes ago. Repo is github.com/veridian-public/api-samples. I'm removing the file now but the secret was live.",
+    "intent": "security_incident",
+    "priority": "P1",
+    "resolved_by": "Security Team + SRE",
+    "resolution_summary": "SEV1 declared. Compromised AWS access keys rotated within 8 minutes. GitHub repo set to private and commit history scrubbed with BFG. CloudTrail audit confirmed no unauthorized API calls during the exposure window. Full incident report filed."
+  },
+  {
+    "id": "INC-0013",
+    "text": "CrowdStrike popped an alert on my machine: 'Suspicious PowerShell execution — lateral movement indicator'. I was only running a setup script for my local dev environment. Could this be a false positive? My machine is a MacBook Pro M3.",
+    "intent": "security_incident",
+    "priority": "P2",
+    "resolved_by": "Security Team",
+    "resolution_summary": "SEV3 investigation. Alert was triggered by a Rosetta-emulated PowerShell call in the dev setup script. Confirmed false positive after reviewing script hash and terminal history. CrowdStrike exclusion added for the specific tool path."
+  },
+  {
+    "id": "INC-0014",
+    "text": "Prism access log monitoring flagged a service account (analytics-svc) pulling 40GB of customer data in the last hour — 100x normal volume. Queries started at 3am and I don't recognize this account as anything my team manages.",
+    "intent": "security_incident",
+    "priority": "P1",
+    "resolved_by": "Security Team + Data Platform",
+    "resolution_summary": "SEV1 declared. analytics-svc account suspended within 5 minutes. Credentials had been leaked via a .env file in an internal repo. No external exfiltration confirmed — data queried but not exported outside VPC. Credentials rotated, incident report filed."
+  },
+  {
+    "id": "INC-0015",
+    "text": "We terminated a contractor 2 weeks ago but their GitHub account (contractor-jsmith) has commits showing in our internal repos from yesterday. Either offboarding didn't complete properly or someone is using their credentials.",
+    "intent": "security_incident",
+    "priority": "P2",
+    "resolved_by": "Security Team + IT Ops",
+    "resolution_summary": "SEV2 raised. GitHub SSO session had persisted due to a misconfiguration in the Okta-GitHub integration. Session terminated, access revoked. Recent commits were from a pre-termination branch that auto-merged — no unauthorized post-termination access confirmed."
+  },
+  {
+    "id": "INC-0016",
+    "text": "Someone installed a Slack app called 'SalesHelper Pro' in our workspace. It has permissions to read all messages in all channels and I can't find any record of it being approved. This doesn't look right.",
+    "intent": "security_incident",
+    "priority": "P2",
+    "resolved_by": "Security Team",
+    "resolution_summary": "SEV3 declared. App installed by a sales team member without IT review. Broad message history scope revoked immediately. App approval workflow added to Slack admin settings. No evidence of data exfiltration in app activity logs."
+  },
+  {
+    "id": "INC-0017",
+    "text": "Just received my new MacBook Pro M3 but Jamf MDM enrollment keeps failing. I get through Apple Setup Assistant, enter my Veridian credentials, then see 'MDM enrollment could not be completed' error code 8. This is day 2 of waiting.",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "MDM error 8 caused by a mismatched DEP device record — the MacBook serial was assigned to the wrong enrollment group. Re-registered in Apple Business Manager, cleared the device record, and re-enrolled. Completed in 20 minutes."
+  },
+  {
+    "id": "INC-0018",
+    "text": "My LG 4K monitor isn't being detected through my CalDigit TS4 dock. It works fine with a direct USB-C cable to the MacBook. Everything else on the dock — ethernet, USB hub — works. Just the monitor passthrough is broken.",
+    "intent": "hardware_issue",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "CalDigit TS4 dock firmware was out of date on DisplayPort Alt Mode negotiation. Pushed dock firmware update to 5.1.2 via remote session. Monitor detected correctly post-update."
+  },
+  {
+    "id": "INC-0019",
+    "text": "Coffee spilled on my MacBook Pro M3 this morning. Powered it off immediately, been upside down for 2 hours. The L and K keys are sticking but it's booting fine. Do I bring it to IT or send it to Apple directly?",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Device collected same-day, sent to Apple Authorized Service Provider. Loaner MacBook Pro M3 issued from IT spares. Keyboard replaced under AppleCare+. Device returned in 4 business days."
+  },
+  {
+    "id": "INC-0020",
+    "text": "My MacBook Pro M3 has a visibly bulging trackpad — I think the battery is swelling. The trackpad doesn't click and there's a small gap opening on the left chassis. Is this a safety hazard? Should I stop using it?",
+    "intent": "hardware_issue",
+    "priority": "P1",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Swollen battery is a P1 safety issue. Instructed employee to power off immediately and not charge. Device collected within the hour. Loaner MacBook Pro M3 issued. Device sent to Apple for safety repair under warranty. Incident logged with Facilities."
+  },
+  {
+    "id": "INC-0021",
+    "text": "My Logitech Brio 4K webcam has stopped showing up in Zoom and Google Meet. It appears in System Information but not as a video source. Broken for 3 days and I have customer calls daily. Running macOS Sonoma 14.3.",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "macOS Sonoma 14.3 broke USB camera enumeration after a kernel extension change. Applied Logitech BRIO firmware 2.0.172 and reset TCC camera permissions via MDM. Webcam restored in both Zoom and Meet."
+  },
+  {
+    "id": "INC-0022",
+    "text": "Dropped my company iPhone 15 Pro and the screen has a large crack — upper right quadrant is unresponsive to touch. I use it for Okta Verify MFA so losing it is blocking me from logging into several systems right now.",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Temporary MFA bypass issued for business-critical apps. iPhone screen replaced at Apple Store via AppleCare+ same-day. Okta Verify re-enrolled on repaired device. Full access restored within 8 hours."
+  },
+  {
+    "id": "INC-0023",
+    "text": "My CalDigit TS4 dock stopped charging my MacBook 2 days ago. The dock is on — LEDs lit, USB devices work — but MacBook shows 'Power Adapter not supported' and battery is slowly draining. Tried SMC reset, no change.",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "CalDigit TS4 power delivery chip fault confirmed. Replaced dock from IT spares. Old dock sent for RMA. Resolved same-day."
+  },
+  {
+    "id": "INC-0024",
+    "text": "I only have my MacBook screen right now. I do a lot of code review and side-by-side work — a second monitor would really help. What's the process? I've been here 4 months so I missed the new-hire equipment window.",
+    "intent": "hardware_issue",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Hardware request submitted and approved by manager. Ordered LG 27UK850-W (standard engineering monitor) from IT budget. Delivered and set up with CalDigit TS4 dock within 3 business days."
+  },
+  {
+    "id": "INC-0025",
+    "text": "Got a new iPhone 15 Pro and migrated apps from my old phone. Okta Verify migrated but TOTP codes are no longer accepted — always says 'incorrect code'. Old phone is gone, so I can't remove and re-add. Locked out of several Okta-gated tools.",
+    "intent": "software_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Okta MFA factor reset performed. Temporary access bypass issued for critical apps. Employee re-enrolled Okta Verify on new iPhone — full access restored within 1 hour."
+  },
+  {
+    "id": "INC-0026",
+    "text": "After the Slack update to 4.36 that pushed this morning, I'm no longer getting desktop notifications for DMs or mentions. Settings show everything enabled and macOS notification permissions are set to Allow. Several teammates have the same issue.",
+    "intent": "software_issue",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Known Slack 4.36 regression affecting macOS Ventura and Sonoma. Rolled back to 4.35.131 via Jamf fleet policy. Reported to Slack support. Notifications restored post-rollback."
+  },
+  {
+    "id": "INC-0027",
+    "text": "Zoom crashes every time I try to share a browser window specifically — sharing the full desktop works fine. Started after the macOS 14.4 update. I have a customer demo in 2 hours and need this fixed urgently.",
+    "intent": "software_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "macOS 14.4 changed Screen Recording permissions breaking per-window sharing in Zoom 5.17.x. Reset screen recording permissions via MDM and reinstalled Zoom 5.17.11. Confirmed working before the customer demo."
+  },
+  {
+    "id": "INC-0028",
+    "text": "My JetBrains IntelliJ IDEA Ultimate license expired this morning. I have an active sprint with 3 tickets in progress and being locked out of my IDE is a complete blocker. Employee ID VRD-ENG-0384.",
+    "intent": "software_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "JetBrains license renewed via company toolbox account and pushed to device via Jamf within 90 minutes. License now set to auto-renew 30 days before expiry."
+  },
+  {
+    "id": "INC-0029",
+    "text": "My 1Password browser extension stopped auto-filling credentials in Chrome. The desktop app works fine and the extension shows as active, but clicking Fill on a login form does nothing. Tried rolling back Chrome — same issue.",
+    "intent": "software_issue",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "1Password helper process lost its connection to the Chrome native messaging host after a macOS Sonoma security update. Repaired by reinstalling 1Password browser integration and resetting Chrome's native messaging config."
+  },
+  {
+    "id": "INC-0030",
+    "text": "Getting 'authentication failed' when pulling from our Nexus npm registry. My ~/.npmrc has our Nexus URL and a valid auth token. This started after I rotated my Nexus API token last week — maybe I set up the new token incorrectly?",
+    "intent": "software_issue",
+    "priority": "P2",
+    "resolved_by": "DevOps Team",
+    "resolution_summary": "Nexus 3.6x changed the npm auth token format — Base64 encoding is no longer required. Employee's ~/.npmrc was using the old format. Updated the config template and pushed the corrected ~/.npmrc via Jamf. Nexus pull confirmed working."
+  },
+  {
+    "id": "INC-0031",
+    "text": "Docker Desktop is failing to start on my MacBook Pro M3 with 'cannot load kernel extension'. Running Docker Desktop 4.28. This is blocking all local development — I can't run any of our docker-compose environments.",
+    "intent": "software_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Docker Desktop 4.28 has a known kernel extension signing issue on Apple Silicon with macOS 14.3+. Downgraded to 4.27.2 via Jamf policy with auto-update disabled. Local Docker environments confirmed functional."
+  },
+  {
+    "id": "INC-0032",
+    "text": "After updating the GitLens VS Code extension to 15.0, all git operations in the VS Code terminal fail with 'fatal: unable to read config file'. Even git status throws the error. Git works fine in a separate terminal window.",
+    "intent": "software_issue",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "GitLens 15.0 introduced a breaking change to git config injection that conflicts with Veridian's git credential helper. Rolled GitLens back to 14.9.1 and pinned the version in the team VS Code settings.json. Root cause reported to GitLens maintainers."
+  },
+  {
+    "id": "INC-0033",
+    "text": "Hi, it's my first day — James Okafor, new SRE. My MacBook Pro M3 arrived but I'm stuck at the Jamf enrollment screen asking for an 'Enrollment Profile' that I don't have. My manager said IT would handle this setup.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "New hire's MacBook DEP profile was assigned to the wrong enrollment group (Design instead of Engineering). Re-assigned in Apple Business Manager, wiped and re-enrolled. Engineering baseline with dev tooling applied. Resolved in 90 minutes."
+  },
+  {
+    "id": "INC-0034",
+    "text": "Starting my second week and I still haven't received my Slack invite. I've been communicating via personal email which isn't ideal. Work email is clara.santiago@veridian.io. People Ops says they submitted the request last Monday.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Slack invite had been sent to a wrong alias (clara.s@ instead of clara.santiago@). Re-sent to correct address, account activated. Added to all relevant team channels. Onboarding checklist gap flagged to People Ops."
+  },
+  {
+    "id": "INC-0035",
+    "text": "New hire — David Kim, Data Engineer. My HID badge works for the main lobby but not for the 4th floor engineering area or the server room. I need floor 4 access for my daily work.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "IT Ops + Facilities",
+    "resolution_summary": "Badge access rules updated in the HID access control system. Floor 4 access granted immediately. Server room access requires CTO sign-off — request escalated. Employee notified of separate approval process."
+  },
+  {
+    "id": "INC-0036",
+    "text": "I'm Maya Chen, just joined the Data team as Senior Data Analyst. I can log into Prism but only have access to the sandbox schema. My role requires read access to the production and customer_events schemas for my day-to-day work.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "Data Platform Team",
+    "resolution_summary": "Prism production access is gated on data handling training completion. Confirmed maya.chen@veridian.io had completed the training. Added to prism-analysts-prod Okta group. Full production access granted within 24 hours."
+  },
+  {
+    "id": "INC-0037",
+    "text": "I joined SRE 3 weeks ago (Arjun Patel). My manager added me to the Helix on-call rotation starting next week but I haven't received any setup instructions. I can't see the rotation calendar or configure my escalation preferences.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "SRE Team + IT Ops",
+    "resolution_summary": "Helix account created via Slack SSO for arjun.patel@veridian.io. Added to the SRE primary rotation schedule. Walk-through of escalation configuration, PagerDuty integration, and Helix override settings completed with on-call lead."
+  },
+  {
+    "id": "INC-0038",
+    "text": "Hi, I'm Sophie Laurent, new Senior PM starting today. I need Jira access for the PLATFORM, GROWTH, and BILLING projects plus Confluence write access. Also need to be added to #pm-team on Slack.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Jira access granted for PLATFORM, GROWTH, and BILLING with PM-tier permissions. Full Confluence read/write provisioned. Added to #pm-team and #all-product-managers Slack channels. Standard PM onboarding package applied."
+  },
+  {
+    "id": "INC-0039",
+    "text": "New hire in the Singapore office — Wei Zhang, Backend Engineer. MacBook enrolled fine but I can't reach any internal services: Nexus, internal dashboards, GitHub Enterprise. The onboarding doc references a London VPN gateway.",
+    "intent": "onboarding",
+    "priority": "P2",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Singapore VPN gateway (sg-gateway.veridian.io) was operational but missing from onboarding docs. Deployed correct GlobalProtect profile to wei.zhang@veridian.io via Jamf. All internal services accessible. Onboarding documentation updated."
+  },
+  {
+    "id": "INC-0040",
+    "text": "Quick question — where do I find the official Veridian email signature template? I've been using plain text but everyone else has the branded HTML signature with the logo. Is there a self-service setup link?",
+    "intent": "onboarding",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Directed employee to the signature generator at intranet.veridian.io/tools/email-signature. Also pushed the standard email signature via Google Workspace admin to enforce company-wide consistency."
+  },
+  {
+    "id": "INC-0041",
+    "text": "URGENT SEV1: prod-payments is returning HTTP 500 on all /v2/charge endpoints. Error rate is 100%. Stripe webhooks are processing but charges are failing. Started 4 minutes ago. Helix rotation is paging but looping you in too.",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "resolved_by": "SRE Team",
+    "resolution_summary": "SEV1 confirmed. Bad config map deployed at 14:32 UTC referencing a deleted database secret. Config map rolled back in 6 minutes. prod-payments error rate returned to 0% by 14:41 UTC. 9-minute incident window. Post-mortem scheduled."
+  },
+  {
+    "id": "INC-0042",
+    "text": "SEV1 in progress — prod-payments is experiencing intermittent timeouts to our payment processor. About 15% of transactions failing with GATEWAY_TIMEOUT. Started 10 minutes ago. Customer support is already getting calls.",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "resolved_by": "SRE Team + Payments Engineering",
+    "resolution_summary": "SEV1. Braintree was degraded on their US-East endpoint. SRE switched prod-payments traffic to Braintree EU failover within 12 minutes. Error rate dropped to 0.3%. Braintree confirmed full US-East recovery at T+47 min."
+  },
+  {
+    "id": "INC-0043",
+    "text": "prod-payments pods are in CrashLoopBackOff across all 6 replicas in us-east-1. Logs show OOMKilled — container exceeded memory limit. This is a SEV1. Helix is active but looping you in directly.",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "resolved_by": "SRE Team",
+    "resolution_summary": "SEV1. Memory spike traced to an N+1 query introduced in v2.14.1 deploy 2 hours earlier. Rolled back to v2.14.0 and increased memory limit as a buffer. Service restored in 11 minutes. Hotfix v2.14.2 deployed the following day."
+  },
+  {
+    "id": "INC-0044",
+    "text": "Stripe webhook processing is backed up — events that normally process in under 1 second are taking 45-60 seconds. Payment confirmation delays are customer-visible. Not a complete outage but declaring SEV2.",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "resolved_by": "Payments Engineering",
+    "resolution_summary": "SEV2 auto-escalated to P1 per prod-payments policy. Root cause: a Celery worker deployment had reduced webhook queue workers from 20 to 2 via a misconfigured Helm value. Corrected and redeployed in 20 minutes. Queue fully drained in 35 minutes."
+  },
+  {
+    "id": "INC-0045",
+    "text": "We're seeing duplicate charge events in prod-payments — customers being charged twice for the same transaction. Around 40 duplicates in the last 2 hours. Finance is aware. Declaring SEV1.",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "resolved_by": "Payments Engineering + SRE",
+    "resolution_summary": "SEV1. Duplicate charges caused by an idempotency key generation bug in v2.15.0. Feature-flagged the broken code path off in 18 minutes to stop new duplicates. 40 affected charges refunded via Stripe API. v2.15.1 hotfix deployed with corrected idempotency logic."
+  },
+  {
+    "id": "INC-0046",
+    "text": "Automated monitoring flagged that the TLS certificate for prod-payments-api.veridian.io expires in 6 days. cert-manager auto-renewal failed with a DNS challenge error. If not fixed, all payment traffic will fail at expiry.",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "resolved_by": "DevOps Team",
+    "resolution_summary": "P1 per prod-payments policy. cert-manager DNS challenge failing due to a Route53 IAM permission removed during a security hardening pass. Permission restored, cert-manager re-triggered. New 90-day certificate issued and auto-renewal confirmed working in staging."
+  },
+  {
+    "id": "INC-0047",
+    "text": "I'd like to order a standing desk for my home office — the Flexispot E7 is $389 on Amazon. I know the home office equipment limit is $400. Is this within budget and what's the submission process?",
+    "intent": "expense_request",
+    "priority": "P3",
+    "resolved_by": "Finance Team",
+    "resolution_summary": "$389 is within the $400 home office equipment limit. Employee submitted via Expensify under 'Home Office — IT Equipment'. Approved by manager and Finance within 1 business day. Reimbursed on next payroll cycle."
+  },
+  {
+    "id": "INC-0048",
+    "text": "I'm fully remote and my 24\" monitor is causing eye strain. I'd like to get a 32\" LG 4K (~$650). I think this might be over the standard home office limit — is there an approval process for amounts above $400?",
+    "intent": "expense_request",
+    "priority": "P3",
+    "resolved_by": "Finance Team",
+    "resolution_summary": "$650 exceeds the $400 self-approval limit. Employee submitted a budget exception request with manager and department head approval. Approved with company covering $400 and employee covering $250. Granted as a one-time allowance."
+  },
+  {
+    "id": "INC-0049",
+    "text": "My wrists are hurting and my doctor recommended an ergonomic keyboard and mouse. Looking at the Logitech MX Ergo trackball ($100) and a Keychron ergonomic keyboard ($95). Does medical necessity change the approval process?",
+    "intent": "expense_request",
+    "priority": "P3",
+    "resolved_by": "People Ops + Finance Team",
+    "resolution_summary": "Total $195 is within the $400 home office limit. With a medical note the purchase can also be categorized under the Wellness Equipment budget with People Ops sign-off. Employee opted for standard home office budget. Approved via Expensify."
+  },
+  {
+    "id": "INC-0050",
+    "text": "I'd like to attend KubeCon North America next month in Chicago. Registration is $1,200, flights ~$400, hotel 3 nights ~$700. Total around $2,300. Is this within the engineering L&D budget? What's the approval process?",
+    "intent": "expense_request",
+    "priority": "P3",
+    "resolved_by": "Finance Team",
+    "resolution_summary": "KubeCon falls within the annual L&D conference budget ($3,000 per engineer per year). Manager and VP Engineering approved. Pre-authorization created in Expensify to cover trip expenses."
+  },
+  {
+    "id": "INC-0051",
+    "text": "Our design team has 3 contractors joining next sprint who need Adobe Creative Cloud licenses at $54/month each. Does IT procure these or does it go through Finance? We need them by Monday.",
+    "intent": "expense_request",
+    "priority": "P2",
+    "resolved_by": "Finance Team + IT Ops",
+    "resolution_summary": "Software licenses over $100/month require Finance approval and IT procurement to maintain enterprise agreement terms. Submitted as a budget request. Fast-tracked given time sensitivity — all 3 licenses provisioned by Friday."
+  },
+  {
+    "id": "INC-0052",
+    "text": "I'd like to expense a Herman Miller Aeron chair for my home office ($1,495). I have chronic back issues and my current chair makes it significantly worse. Is there any route to get this approved given the medical context?",
+    "intent": "expense_request",
+    "priority": "P3",
+    "resolved_by": "People Ops + Finance Team",
+    "resolution_summary": "Ergonomics accommodation policy allows up to $1,500 for medically necessary equipment with VP-level approval. Medical note submitted, VP People Ops approved. Reimbursed via ergonomics accommodation budget, not from L&D allowance."
+  },
+  {
+    "id": "INC-0053",
+    "text": "My home internet (50 Mbps) struggles on large Zoom calls and when pulling big artifacts from Nexus. Upgrading to 500 Mbps is $40/month more. Does Veridian cover home internet upgrades for remote employees?",
+    "intent": "expense_request",
+    "priority": "P3",
+    "resolved_by": "Finance Team",
+    "resolution_summary": "Remote work policy covers up to $50/month toward home internet for fully remote employees. Monthly stipend claim submitted via Expensify with proof of current and upgraded plans. Approved as a recurring stipend."
+  },
+  {
+    "id": "INC-0054",
+    "text": "How many days of PTO do I accrue per month as a full-time employee? I've looked through the handbook but can't find the exact accrual rate. Also can PTO roll over into next year or does it expire?",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "People Ops",
+    "resolution_summary": "Redirected to People Ops (HR matter, not IT). People Ops confirmed: 1.67 days accrued per month (20 days/year). Up to 5 days roll over annually; remainder forfeited. Updated handbook link sent to employee."
+  },
+  {
+    "id": "INC-0055",
+    "text": "I need to request a new S3 bucket for my team's data pipeline. Which Jira project and issue type should I use? I can see INFRA, DEVOPS, and PLATFORM but I'm not sure which is right for infrastructure requests.",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Clarified: infrastructure requests (S3, EC2, networking) go to the INFRA project using the 'Infrastructure Request' issue type. DEVOPS is for CI/CD pipeline changes; PLATFORM is for Kubernetes workloads. Wiki page at confluence.veridian.io/it/request-routing sent."
+  },
+  {
+    "id": "INC-0056",
+    "text": "The WiFi on the newly opened 6th floor is very slow — I'm getting 8 Mbps when the rest of the office gets 500+. There appear to be only 2 Meraki APs up there for a large open plan. Is IT aware of this?",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Network team confirmed only 2 APs provisioned for 6th floor during initial fit-out — insufficient for full occupancy. 4 additional Meraki MR46 APs ordered. Installation scheduled for the following week. Wired ethernet recommended in the interim."
+  },
+  {
+    "id": "INC-0057",
+    "text": "I've started driving to the office a few days a week and would like a parking permit for the company garage. Who handles this, what's the monthly cost, and is it deducted from payroll?",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "Facilities + People Ops",
+    "resolution_summary": "Redirected to Facilities (not IT). Parking permits managed by Facilities: $75/month deducted pre-tax via payroll. Application link sent. Current wait list is approximately 3 weeks for the main garage."
+  },
+  {
+    "id": "INC-0058",
+    "text": "Where can I find the official company holiday calendar for next year? I need it for planning cross-timezone meetings — we have colleagues in London, Austin, and Singapore with different bank holidays.",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "People Ops",
+    "resolution_summary": "Pointed to the People Ops page on Confluence (confluence.veridian.io/people/holidays) which covers all Veridian offices. Calendar also available as a shareable Google Calendar link sent to employee."
+  },
+  {
+    "id": "INC-0059",
+    "text": "I heard Veridian offers a subsidized gym membership. What's covered and how do I sign up? I'd like to join the PureGym near the London office.",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "People Ops",
+    "resolution_summary": "Wellness benefit confirmed: £50/month gym subsidy for London-based employees. Submit monthly gym receipt via Expensify under 'Wellness Benefit'. PureGym qualifies. First claim requires signed wellness policy acknowledgment form (available on Confluence)."
+  },
+  {
+    "id": "INC-0060",
+    "text": "Going on holiday next week and want to set out-of-office on both Gmail and Slack. Is there a standard Veridian Slack OOO status I should use? And does Helix automatically pause my on-call rotation during approved PTO?",
+    "intent": "general_question",
+    "priority": "P3",
+    "resolved_by": "IT Ops",
+    "resolution_summary": "Advised to use the ':palm_tree: OOO' Slack status with return date. For Helix: on-call pauses must be created manually as a Helix override — it does not auto-sync with Google Calendar or Slack. Wiki at confluence.veridian.io/it/ooo-guide sent."
+  }
+]

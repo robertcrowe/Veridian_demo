@@ -1,0 +1,7 @@
+mistralai>=2.1.2
+streamlit
+python-dotenv
+rich
+pandas
+scikit-learn
+pytest

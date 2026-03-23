@@ -1,0 +1,28 @@
+[project]
+name = "interview-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Goose Agent", email = "goose@example.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "mistralai>=2.1.2",
+    "pandas",
+    "scikit-learn",
+    "python-dotenv",
+    "rich",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["mistral-it-agent/tests"]

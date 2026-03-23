@@ -1,0 +1,61 @@
+{
+  "description": "Generic IT knowledge base articles. Company-agnostic procedures that apply to any organisation.",
+  "articles": [
+    {
+      "id": "KB-001",
+      "category": "access_request",
+      "title": "How to request system access or permissions",
+      "content": "To request access to any system or resource: (1) Submit a ticket through the IT helpdesk portal, specifying the system name, required access level (read/write/admin), and your business justification. (2) Access requests that expand permissions beyond your current role require manager approval — include your manager in the ticket. (3) Contractor and external user access requests require both manager approval and a defined end date. (4) Standard SLA for access provisioning is 4 hours for P2 requests. Offboarding requests (revoking all access for a departing employee) are treated as P1 and actioned within 30 minutes of HR confirmation.",
+      "tags": ["access", "permissions", "provisioning", "request", "offboarding"]
+    },
+    {
+      "id": "KB-002",
+      "category": "security_incident",
+      "title": "Reporting a security incident or suspected breach",
+      "content": "If you suspect a security incident: (1) Do NOT click any links, download attachments, or interact with suspicious content. (2) Immediately report to the security team via the #security-incidents channel or the emergency hotline. (3) For phishing emails: use the 'Report Phishing' button in your email client and forward the email as an attachment to security@. (4) For compromised credentials: contact IT immediately — do not try to change the password yourself before reporting, as this may destroy evidence. (5) For stolen or lost devices: report within 1 hour to enable remote wipe. (6) Severity tiers: SEV1 = active breach or data exfiltration; SEV2 = suspected compromise or stolen device; SEV3 = phishing attempt or policy violation.",
+      "tags": ["security", "phishing", "breach", "incident", "stolen device", "SEV1", "SEV2", "SEV3"]
+    },
+    {
+      "id": "KB-003",
+      "category": "hardware_issue",
+      "title": "Hardware request, replacement, and repair process",
+      "content": "For hardware issues: (1) Submit a hardware ticket describing the fault, device model, and asset tag. IT will assess whether the issue can be resolved remotely. (2) Physical faults (liquid damage, broken screen, battery issues) require the device to be collected by IT — a loaner will be issued if the repair is expected to take more than 4 hours. (3) Safety-critical hardware issues (swollen battery, cracked screen with risk of injury) are treated as P1 regardless of work impact. (4) For hardware upgrade requests (additional monitor, ergonomic peripherals), a manager-approved request is required. Delivery SLA is 3-5 business days. (5) All company hardware must retain its asset tag — do not remove it.",
+      "tags": ["hardware", "repair", "replacement", "loaner", "battery", "monitor", "asset tag"]
+    },
+    {
+      "id": "KB-004",
+      "category": "software_issue",
+      "title": "Software installation, approval, and troubleshooting",
+      "content": "For software requests and issues: (1) Software in the approved catalog can be self-installed via the Software Center or will be available through your MDM tool. (2) Software not in the catalog requires an IT request with a business justification. Security review is required for any software that handles customer data. (3) For license renewals: submit a ticket 2 weeks in advance with the product name and employee ID — do not wait until expiry. (4) Common troubleshooting steps: restart the application, check for pending OS updates, log out and back in to your user session. (5) If a software update breaks existing functionality, IT can roll back to the previous version via MDM within 1 business hour.",
+      "tags": ["software", "install", "license", "approval", "rollback", "MDM", "troubleshoot"]
+    },
+    {
+      "id": "KB-005",
+      "category": "onboarding",
+      "title": "New employee IT onboarding checklist",
+      "content": "IT onboarding for new employees covers: (1) Device provisioning — your laptop should arrive pre-enrolled in MDM. If enrollment fails, contact IT immediately with error code and asset tag. (2) Account activation — your corporate email, SSO account, and communication tools should be active on day 1. If any are missing, contact IT. (3) Access to role-specific systems (code repositories, data tools, on-call tools) is provisioned after your manager submits the required access request in the IT portal. (4) Physical access (building badge, floor access) is coordinated with Facilities — IT handles digital system access only. (5) VPN setup: download the VPN client from the IT portal and connect to your nearest gateway for access to internal services.",
+      "tags": ["onboarding", "new hire", "day 1", "laptop", "MDM", "VPN", "badge", "provisioning"]
+    },
+    {
+      "id": "KB-006",
+      "category": "software_issue",
+      "title": "MFA enrollment, recovery, and device migration",
+      "content": "For Multi-Factor Authentication issues: (1) If you get a new phone and your MFA codes are invalid, contact IT for an MFA factor reset — do not attempt to remove and re-add your authenticator without IT assistance if your old device is unavailable. (2) IT can issue a temporary bypass code for business-critical systems while MFA is being re-enrolled. Bypass codes are valid for 24 hours only. (3) If you are locked out of your account due to too many failed MFA attempts, IT can unlock the account and re-issue a bypass. (4) MFA is required for all SSO-protected applications — exceptions are not granted. (5) If your MFA app shows codes being rejected even though the device clock is correct, contact IT for a factor reset.",
+      "tags": ["MFA", "2FA", "authenticator", "Okta Verify", "locked out", "factor reset", "bypass"]
+    },
+    {
+      "id": "KB-007",
+      "category": "general_question",
+      "title": "VPN: setup, troubleshooting, and gateway selection",
+      "content": "For VPN connectivity: (1) Download the VPN client from the IT portal — do not install a personal VPN client on company devices. (2) Connect to the gateway geographically closest to you for lowest latency. If you have transferred offices, your VPN gateway profile may need updating — contact IT. (3) Common VPN issues: 'authentication failed' is usually an expired Okta session — re-authenticate via the VPN client's SSO flow. 'Certificate error' is usually a device clock drift — ensure your system clock is synced. (4) VPN dropping frequently: try switching between TCP and UDP in the VPN client settings. Provide IT with the exported VPN logs if the issue persists. (5) Split tunneling: corporate VPN routes only internal traffic by default — external internet traffic goes direct.",
+      "tags": ["VPN", "GlobalProtect", "gateway", "latency", "certificate", "authentication", "split tunneling"]
+    },
+    {
+      "id": "KB-008",
+      "category": "expense_request",
+      "title": "IT equipment expenses and home office reimbursement",
+      "content": "For IT equipment expenses: (1) Home office equipment under the standard limit can be self-approved — submit via your expense management tool with the 'Home Office — IT Equipment' category and a receipt. (2) Requests exceeding the standard limit require manager and Finance approval — submit a budget exception request with justification. (3) Medical necessity expenses (ergonomic equipment prescribed by a doctor) may qualify for a higher limit under the wellness accommodation policy — submit a medical note through People Operations. (4) Software license expenses over $100/month must go through IT procurement to maintain enterprise agreement terms — do not purchase directly. (5) Conference and training expenses use the L&D budget, which is separate from the home office equipment budget.",
+      "tags": ["expense", "home office", "reimbursement", "budget", "equipment", "ergonomic", "L&D"]
+    }
+  ]
+}

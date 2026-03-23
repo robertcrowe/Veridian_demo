@@ -1,0 +1,62 @@
+{
+  "company": "Veridian Systems",
+  "description": "Veridian-specific IT procedures, internal tooling, and company policies. Supplements the generic KB.",
+  "articles": [
+    {
+      "id": "VKB-001",
+      "category": "access_request",
+      "title": "Nexus artifact repository — access and authentication",
+      "content": "Nexus is Veridian's internal artifact repository hosting npm packages, Docker images, Maven JARs, and Python wheels for all internal services. Access is required to build most backend and frontend services locally.\n\nAccess tiers: read-only (all engineers by default), read/write (requires team lead approval), admin (DevOps only).\n\nTo request access: submit an IT ticket specifying the Nexus namespace (e.g. payments-service, shared-libs, platform-tools) and your required access level. DevOps provisions access within 4 hours.\n\nAuthentication: Nexus uses Okta SSO for the web UI. For CLI access, generate a personal API token at nexus.veridian.io/user/apikey — tokens rotate every 90 days and do not inherit your Okta password. If your npm, Docker, or Maven pulls are failing after a token rotation, your local config (e.g. ~/.npmrc, ~/.m2/settings.xml, ~/.docker/config.json) needs to be updated with the new token.\n\nNote: the Nexus npm auth token format changed in Nexus 3.6x — Base64 encoding is no longer required. Use the token value directly in your ~/.npmrc _auth field.",
+      "tags": ["Nexus", "artifact repository", "npm", "Docker", "Maven", "API token", "authentication"]
+    },
+    {
+      "id": "VKB-002",
+      "category": "access_request",
+      "title": "Prism data warehouse — access tiers and request process",
+      "content": "Prism is Veridian's internal data warehouse containing product analytics, customer events, financial metrics, and operational data. It is a BigQuery-based platform accessed via the Prism web UI (prism.veridian.io) or directly via the Prism API.\n\nAccess tiers:\n- sandbox: default for all employees — synthetic data only, no PII.\n- analyst-read: read access to production schemas. Requires data handling training completion (tracked in Workday Learning) and manager approval.\n- analyst-prod: read access to customer_events, payments, and billing schemas. Requires analyst-read tier first, a data governance sign-off, and department head approval.\n- engineer-read: read access for service debugging. Provisioned per-request by the Data Platform team.\n- admin: Data Platform team only.\n\nTo request access: submit an IT ticket with your required tier, manager approval, and evidence of completed data handling training. Data Platform team provisions access within 1 business day.\n\nNote: if Prism is rejecting your Okta credentials, the most common cause is that your Okta group membership has not been updated. Contact IT rather than resetting your Okta password.",
+      "tags": ["Prism", "data warehouse", "BigQuery", "analytics", "access tiers", "PII", "data governance"]
+    },
+    {
+      "id": "VKB-003",
+      "category": "onboarding",
+      "title": "Helix on-call rotation — setup and configuration",
+      "content": "Helix is Veridian's Slack-based on-call rotation management tool. It integrates with PagerDuty for alerting and with the Veridian incident response workflow.\n\nSetup for new on-call engineers:\n1. Your Helix account is provisioned via Slack SSO — visit helix.veridian.io and sign in with your Veridian Slack account.\n2. Configure your notification preferences: phone number for SMS/call escalations, PagerDuty integration, and escalation timeout (default: 5 minutes before escalating to secondary).\n3. Your manager adds you to the rotation schedule — you will not appear in on-call windows until your manager completes this step.\n4. To view your upcoming on-call schedule: go to Helix > My Rotations.\n\nDuring on-call:\n- Incoming SEV1 alerts page the primary on-call engineer via PagerDuty within 1 minute.\n- If not acknowledged in 5 minutes, Helix auto-escalates to the secondary on-call.\n- To hand off an active incident, use the 'Transfer Ownership' command in the active Helix incident thread.\n\nOOO / overrides: if you need to swap an on-call shift, create a Helix override for the specific window. Helix does NOT automatically sync with Google Calendar or Slack OOO status — manual overrides are always required.",
+      "tags": ["Helix", "on-call", "PagerDuty", "rotation", "SRE", "escalation", "override"]
+    },
+    {
+      "id": "VKB-004",
+      "category": "payments_incident",
+      "title": "prod-payments incident response procedure",
+      "content": "prod-payments is Veridian's most critical service. Any degradation to prod-payments is automatically classified as P1 regardless of impact scope, per board-level SLA commitments to enterprise customers.\n\nIncident severity for prod-payments:\n- SEV1: any error rate > 1%, any CrashLoopBackOff in prod-payments pods, any failed payment processor connectivity, any certificate expiry risk < 7 days.\n- SEV2: webhook processing delay > 10 seconds, increased latency (P99 > 2s), any non-zero duplicate transaction rate.\n\nResponse procedure:\n1. Helix will automatically page the on-call SRE and the Payments Engineering lead simultaneously for any prod-payments alert.\n2. Declare the SEV level in the #incidents Slack channel using the /sev command within 5 minutes of detection.\n3. Create a Jira incident ticket in the PAYMENTS project (auto-created by PagerDuty for SEV1).\n4. Do not roll back a prod-payments deployment without first confirming with the Payments Engineering lead — rollbacks can trigger data migration issues.\n5. Post-mortem is mandatory for all SEV1 and SEV2 incidents. Template is at confluence.veridian.io/sre/postmortem-template.\n\nKey contacts: Payments Engineering lead (payments-lead@veridian.io), SRE on-call (via Helix), VP Engineering (for customer communication escalation).",
+      "tags": ["prod-payments", "SEV1", "SEV2", "incident response", "SRE", "Helix", "PagerDuty", "post-mortem"]
+    },
+    {
+      "id": "VKB-005",
+      "category": "hardware_issue",
+      "title": "Veridian MacBook Pro M3 provisioning and Jamf MDM",
+      "content": "All engineering employees at Veridian are issued a MacBook Pro M3 (14\" for individual contributors, 16\" for staff+ engineers and managers). Non-engineering roles receive MacBook Air M2 or Dell XPS 13.\n\nMDM: all Macs are enrolled in Jamf Pro (jamf.veridian.io) via Apple Business Manager DEP. Employees cannot disenroll from Jamf — MDM management is mandatory per security policy.\n\nCommon Jamf enrollment issues:\n- Error code 8 ('MDM enrollment could not be completed'): usually a DEP device record mismatch. Contact IT with the MacBook serial number — do not attempt re-enrollment without IT guidance.\n- Wrong baseline profile applied (e.g., Design profile on an Engineering device): IT re-assigns the DEP profile and wipes/re-enrolls. Standard dev tooling (Homebrew, Docker Desktop, JetBrains Toolbox, VS Code, Xcode CLI tools) is pushed automatically on Engineering enrollment.\n\nJamf Self Service: available on all managed Macs. Use it to install approved software without submitting a ticket.\n\nAsset tags: all Veridian hardware has an asset tag in the format VRD-[TEAM]-[NNNN] (e.g. VRD-ENG-0441). Include this in any hardware ticket.",
+      "tags": ["MacBook", "M3", "Jamf", "MDM", "DEP", "Apple Business Manager", "enrollment", "asset tag"]
+    },
+    {
+      "id": "VKB-006",
+      "category": "software_issue",
+      "title": "Veridian SSO, Okta, and application access",
+      "content": "Veridian uses Okta as its Identity Provider for all SSO-protected applications. Every employee has a single Okta account that gates access to Slack, GitHub Enterprise, Jira, Confluence, Prism, Nexus (web UI), AWS (via IAM Identity Center), Zoom, and all other SaaS tools.\n\nMFA: Okta Verify is the required MFA app. Hardware security keys (YubiKey) are supported for staff engineers and above. SMS-based MFA is not permitted.\n\nCommon Okta issues:\n- MFA codes rejected after phone upgrade: the TOTP secret does not automatically migrate between phones. Contact IT for an MFA factor reset. Do not factory reset your old phone before completing migration.\n- SSO app showing 'You do not have access': your Okta group membership is missing the required app assignment. Submit an access request ticket.\n- Okta login loop (authenticate successfully then immediately redirected to login): clear all cookies for okta.com and the affected app domain, try incognito, and if still failing contact IT — this is usually a misconfigured app SAML assertion.\n\nPassword policy: minimum 16 characters, no complexity rules, 90-day rotation for privileged accounts only. Standard accounts do not have forced rotation — use a unique passphrase managed in 1Password.",
+      "tags": ["Okta", "SSO", "MFA", "Okta Verify", "YubiKey", "login loop", "1Password", "SAML"]
+    },
+    {
+      "id": "VKB-007",
+      "category": "expense_request",
+      "title": "Veridian expense policy — IT equipment and home office",
+      "content": "Veridian's IT expense policy governs home office equipment, software subscriptions, and professional development spending.\n\nHome office equipment budget:\n- Up to $400 per item: self-approve in Expensify. Use category 'Home Office — IT Equipment'. Manager is notified but approval is not required.\n- $401–$1,000: manager approval required before purchase. Submit a pre-approval request in Expensify.\n- Over $1,000: department head and Finance approval required. Submit a budget exception request.\n\nMedical or ergonomic necessity: purchases for medically necessary equipment (e.g., ergonomic chairs, specialist keyboards) can be submitted under the Ergonomics Accommodation budget rather than the home office budget. A doctor's note or occupational health assessment is required. VP People Ops must approve. No dollar cap, but Finance reviews amounts over $2,000.\n\nHome internet stipend: fully remote employees can claim up to $50/month toward home internet costs. Submit monthly via Expensify with a copy of the internet bill. Partial months are prorated.\n\nSoftware subscriptions: any software subscription (SaaS, IDE plugins, data tools) must go through IT procurement — do not purchase and expense directly. This ensures enterprise licensing, SSO integration, and security review.\n\nL&D budget: $3,000 per employee per year for conferences, training, and certifications. Separate from home office budget.",
+      "tags": ["expense", "home office", "budget", "Expensify", "ergonomics", "stipend", "L&D", "software"]
+    },
+    {
+      "id": "VKB-008",
+      "category": "access_request",
+      "title": "Employee offboarding — IT access revocation checklist",
+      "content": "When an employee leaves Veridian, IT must revoke all access according to the following checklist. People Ops initiates the offboarding process via the IT portal.\n\nImmediate actions (within 30 minutes for involuntary terminations, within 2 hours for voluntary departures):\n1. Disable Okta account — this automatically cascades to all Okta SSO-connected apps (Slack, Jira, Confluence, Zoom, GitHub Enterprise, etc.).\n2. Revoke GitHub organisation membership directly (SSO cascade may not immediately prevent token-based access).\n3. Rotate all AWS IAM access keys and service account credentials associated with the employee.\n4. Terminate active Nexus sessions and revoke personal API tokens.\n5. Terminate active Prism sessions.\n6. Deactivate Slack account.\n7. Revoke HID building access badge.\n\nData retention: corporate data in Google Drive, email, and Slack is retained for 90 days per legal hold policy, then deleted. People Ops determines if data needs to be transferred to the departing employee's manager.\n\nContractor offboarding: contractor accounts have an expiry date set at provisioning and auto-deactivate on that date. However, any active tokens (GitHub PATs, Nexus tokens, AWS keys) must still be manually revoked on termination day — automated deactivation does not cover these.",
+      "tags": ["offboarding", "termination", "access revocation", "Okta", "GitHub", "AWS", "Nexus", "contractor"]
+    }
+  ]
+}

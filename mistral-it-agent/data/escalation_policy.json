@@ -1,0 +1,448 @@
+{
+  "company": "Veridian Systems",
+  "version": "2024.2",
+  "global_contacts": {
+    "it_helpdesk": "it-help@veridian.io",
+    "it_helpdesk_slack": "#it-help",
+    "security_team": "security@veridian.io",
+    "security_slack": "#security-incidents",
+    "security_emergency_hotline": "+1-800-VRD-CERT",
+    "sre_oncall": "Helix rotation — see helix.veridian.io",
+    "people_ops": "people-ops@veridian.io",
+    "finance": "finance@veridian.io"
+  },
+  "sla_definitions": {
+    "P1": {
+      "first_response_minutes": 15,
+      "resolution_hours": 2,
+      "description": "Critical — direct business or safety impact"
+    },
+    "P2": {
+      "first_response_minutes": 60,
+      "resolution_hours": 4,
+      "description": "High — significant productivity impact or potential risk"
+    },
+    "P3": {
+      "first_response_minutes": 240,
+      "resolution_hours": 24,
+      "description": "Medium/Low — limited productivity impact"
+    }
+  },
+  "escalation_paths": [
+    {
+      "intent": "access_request",
+      "description": "Account provisioning, permission grants, access revocation, offboarding",
+      "sla_overrides": {
+        "P1": "Offboarding/emergency revocations: 30-minute action SLA",
+        "P2": "Standard provisioning: 4-hour resolution",
+        "P3": "Non-urgent access changes: 24-hour resolution"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "IT Ops",
+          "contact": "it-help@veridian.io",
+          "slack": "#it-help",
+          "handles": [
+            "Standard access provisioning (Jira, Confluence, Slack, VPN)",
+            "Contractor account setup",
+            "Okta group membership changes",
+            "HID badge access for non-secure areas",
+            "Offboarding access revocation"
+          ],
+          "response_sla_minutes": 60
+        },
+        {
+          "tier": 2,
+          "team": "DevOps / Platform Engineering",
+          "contact": "devops@veridian.io",
+          "slack": "#devops",
+          "handles": [
+            "Nexus namespace access",
+            "AWS IAM role assignments",
+            "GitHub org membership and repo access",
+            "Production environment access"
+          ],
+          "response_sla_minutes": 60
+        },
+        {
+          "tier": 3,
+          "team": "IT Ops Lead + Security",
+          "contact": "it-ops-lead@veridian.io",
+          "handles": [
+            "Admin-level access requests",
+            "Requests to bypass standard RBAC",
+            "Bulk access changes",
+            "Disputed offboarding access removal"
+          ],
+          "response_sla_minutes": 120
+        }
+      ],
+      "automatic_actions": [
+        "All access changes logged in the IT audit trail",
+        "Manager notified by email of any access granted or revoked",
+        "Offboarding triggers automated Okta account disable"
+      ]
+    },
+    {
+      "intent": "security_incident",
+      "description": "Phishing, suspected breach, ransomware, stolen devices, suspicious logins, SEV1/SEV2/SEV3 security events",
+      "sla_overrides": {
+        "P1": "SEV1: 15-minute response, 2-hour containment",
+        "P2": "SEV2: 15-minute response (same as P1), 4-hour investigation",
+        "P3": "SEV3: 1-hour response, 24-hour resolution"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "Security Team (on-call)",
+          "contact": "security@veridian.io",
+          "slack": "#security-incidents",
+          "phone": "+1-800-VRD-CERT",
+          "handles": [
+            "All security incidents at all severity levels",
+            "Initial triage and severity classification",
+            "Immediate containment actions (session revocation, device isolation)"
+          ],
+          "response_sla_minutes": 15
+        },
+        {
+          "tier": 2,
+          "team": "Security Engineering Lead",
+          "contact": "sec-lead@veridian.io",
+          "handles": [
+            "SEV1 and SEV2 incidents requiring engineering response",
+            "Confirmed data exfiltration",
+            "Active ransomware or malware",
+            "Compromised service accounts affecting production"
+          ],
+          "response_sla_minutes": 30
+        },
+        {
+          "tier": 3,
+          "team": "CISO + VP Engineering + Legal",
+          "contact": "ciso@veridian.io",
+          "handles": [
+            "Confirmed data breach requiring customer or regulatory notification",
+            "Active compromise of prod-payments or Prism",
+            "Any incident potentially involving PII exfiltration"
+          ],
+          "response_sla_minutes": 60
+        }
+      ],
+      "automatic_actions": [
+        "SEV1: immediately page on-call Security and CISO via PagerDuty",
+        "SEV1: isolate affected device from network if possible",
+        "SEV1/SEV2: force-reset all credentials for affected accounts",
+        "Any incident: open Jira ticket in SECURITY project",
+        "PII exposure suspected: notify Legal automatically"
+      ]
+    },
+    {
+      "intent": "hardware_issue",
+      "description": "Device faults, peripheral issues, MDM enrollment, hardware requests and replacements",
+      "sla_overrides": {
+        "P1": "Safety hazards (swollen battery, structural damage): same-day collection and loaner",
+        "P2": "Business-blocking faults: same-day assessment, loaner if repair > 4 hours",
+        "P3": "Non-blocking hardware requests: 3-5 business day delivery"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "IT Ops (remote support)",
+          "contact": "it-help@veridian.io",
+          "slack": "#it-help",
+          "handles": [
+            "MDM enrollment issues",
+            "Driver and firmware troubleshooting",
+            "Peripheral connectivity (monitor, dock, webcam, keyboard)",
+            "Software-resolvable hardware symptoms",
+            "Hardware upgrade and replacement requests"
+          ],
+          "response_sla_minutes": 240
+        },
+        {
+          "tier": 2,
+          "team": "IT Ops (on-site technician)",
+          "contact": "it-onsite@veridian.io",
+          "handles": [
+            "Confirmed hardware faults requiring physical inspection",
+            "Liquid damage assessment",
+            "Device collection for repair or replacement",
+            "Loaner equipment dispatch"
+          ],
+          "response_sla_minutes": 480
+        },
+        {
+          "tier": 3,
+          "team": "IT Hardware Logistics + Facilities",
+          "contact": "it-logistics@veridian.io",
+          "handles": [
+            "Warranty claims and Apple Authorized Service Provider coordination",
+            "Fleet-wide hardware defect management",
+            "Safety incidents (swollen battery — notify Facilities)"
+          ],
+          "response_sla_minutes": 1440
+        }
+      ],
+      "automatic_actions": [
+        "Log asset state change in hardware inventory system",
+        "Trigger AppleCare+ claim if device is within warranty and physically damaged",
+        "Issue loaner from IT spares if primary device out of action > 4 hours"
+      ]
+    },
+    {
+      "intent": "software_issue",
+      "description": "Application bugs, license renewals, installation failures, MDM-pushed software rollbacks",
+      "sla_overrides": {
+        "P1": "Business-blocking IDE or critical tool failure with active deadline: 1-hour response",
+        "P2": "Standard business-blocking software fault: 4-hour resolution",
+        "P3": "Non-blocking software issues: 24-hour resolution"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "IT Ops",
+          "contact": "it-help@veridian.io",
+          "slack": "#it-help",
+          "handles": [
+            "MFA factor resets (Okta Verify, 1Password)",
+            "License renewals (JetBrains, Adobe, Zoom)",
+            "MDM software rollbacks (Slack, Zoom, Docker Desktop)",
+            "Browser extension and plugin issues",
+            "Standard app troubleshooting"
+          ],
+          "response_sla_minutes": 60
+        },
+        {
+          "tier": 2,
+          "team": "DevOps Team",
+          "contact": "devops@veridian.io",
+          "handles": [
+            "Nexus client authentication failures",
+            "Docker Desktop kernel extension issues on M-series Macs",
+            "CI/CD pipeline tooling failures",
+            "Internal developer tool issues (custom Veridian tooling)"
+          ],
+          "response_sla_minutes": 120
+        },
+        {
+          "tier": 3,
+          "team": "IT Ops Lead + Vendor Support",
+          "contact": "it-ops-lead@veridian.io",
+          "handles": [
+            "Fleet-wide software regressions requiring vendor escalation",
+            "Enterprise license compliance issues",
+            "Security software (CrowdStrike) false positive whitelisting"
+          ],
+          "response_sla_minutes": 240
+        }
+      ],
+      "automatic_actions": [
+        "If MFA factor is reset, issue 24-hour bypass code for critical apps",
+        "Fleet-wide Jamf rollback is triggered by IT Ops Lead approval only",
+        "Vendor support tickets opened for issues affecting > 5 employees"
+      ]
+    },
+    {
+      "intent": "onboarding",
+      "description": "New hire day-1 setup, account provisioning, device enrollment, role-specific access, Helix on-call setup",
+      "sla_overrides": {
+        "P1": "Day-1 blocking issues (no laptop, no Okta account): immediate response",
+        "P2": "Missing access preventing job function: 4-hour resolution on day 1",
+        "P3": "Non-blocking onboarding gaps: 24-hour resolution"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "IT Ops",
+          "contact": "it-help@veridian.io",
+          "slack": "#it-help",
+          "handles": [
+            "MacBook MDM enrollment failures",
+            "Missing Okta account or SSO app access",
+            "Slack invite not received",
+            "Email signature setup",
+            "VPN profile deployment (including international gateways)",
+            "Standard tool provisioning (Jira, Confluence, Zoom, 1Password)"
+          ],
+          "response_sla_minutes": 60
+        },
+        {
+          "tier": 2,
+          "team": "IT Ops + Hiring Manager",
+          "contact": "it-help@veridian.io",
+          "handles": [
+            "Role-specific access (Nexus, Prism, AWS, GitHub) — requires manager to have submitted access requests",
+            "Helix on-call account setup (coordinated with SRE team lead)",
+            "Badge access for secure areas (server room, restricted floors)"
+          ],
+          "response_sla_minutes": 120
+        },
+        {
+          "tier": 3,
+          "team": "People Ops + IT Ops Lead",
+          "contact": "people-ops@veridian.io",
+          "handles": [
+            "Systemic onboarding failures (multiple new hires affected)",
+            "International hire setup requiring regional IT support",
+            "Onboarding checklist gaps requiring process change"
+          ],
+          "response_sla_minutes": 240
+        }
+      ],
+      "automatic_actions": [
+        "New hire ticket creation triggers IT onboarding checklist in Jira",
+        "Hiring manager notified if day-1 access is not confirmed by 10am on start date",
+        "People Ops notified of any onboarding delays > 4 hours"
+      ]
+    },
+    {
+      "intent": "payments_incident",
+      "description": "Any incident or degradation affecting the prod-payments service — always P1",
+      "sla_overrides": {
+        "P1": "All payments incidents are P1. First response: 15 minutes. Containment target: 30 minutes. Resolution target: 2 hours.",
+        "P2": "Not applicable — all prod-payments incidents are auto-escalated to P1.",
+        "P3": "Not applicable — all prod-payments incidents are auto-escalated to P1."
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "SRE On-Call (via Helix)",
+          "contact": "Helix rotation — helix.veridian.io",
+          "slack": "#incidents",
+          "handles": [
+            "Initial triage and SEV classification",
+            "Pod restarts, config map rollbacks, traffic rerouting",
+            "Certificate renewal emergency",
+            "All prod-payments alerts from monitoring"
+          ],
+          "response_sla_minutes": 15
+        },
+        {
+          "tier": 2,
+          "team": "Payments Engineering Lead",
+          "contact": "payments-lead@veridian.io",
+          "slack": "#payments-eng",
+          "handles": [
+            "Code-level investigation (N+1 queries, logic bugs, idempotency failures)",
+            "Rollback decisions for prod-payments deployments",
+            "Coordination with payment processor (Braintree/Stripe) support",
+            "Duplicate transaction remediation"
+          ],
+          "response_sla_minutes": 15
+        },
+        {
+          "tier": 3,
+          "team": "VP Engineering + CEO (for customer notification)",
+          "contact": "vp-eng@veridian.io",
+          "handles": [
+            "Incidents exceeding 30-minute resolution target",
+            "Customer-facing communication for > 10-minute outages",
+            "Regulatory notification if financial data is at risk"
+          ],
+          "response_sla_minutes": 30
+        }
+      ],
+      "automatic_actions": [
+        "Any prod-payments alert auto-pages SRE on-call and Payments lead via PagerDuty",
+        "SEV1 auto-creates a Jira incident in PAYMENTS project",
+        "SEV1 auto-posts to #incidents Slack channel with runbook link",
+        "Duplicate charges: auto-trigger Stripe refund script after engineer confirmation",
+        "Post-mortem mandatory for all incidents — template auto-attached to Jira ticket"
+      ]
+    },
+    {
+      "intent": "expense_request",
+      "description": "Home office equipment, ergonomics, software subscriptions, conference and L&D expenses",
+      "sla_overrides": {
+        "P1": "Not applicable for expense requests",
+        "P2": "Time-sensitive procurement (contractor licenses, conference approaching): 24-hour response",
+        "P3": "Standard expense approvals: 2 business day response"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "Employee self-service (Expensify)",
+          "contact": "finance@veridian.io",
+          "handles": [
+            "Home office equipment under $400 (self-approve in Expensify)",
+            "Monthly home internet stipend claims (fully remote employees)",
+            "L&D expenses under $500",
+            "Standard conference registration under $1,500"
+          ],
+          "response_sla_minutes": 0
+        },
+        {
+          "tier": 2,
+          "team": "Manager + Finance Team",
+          "contact": "finance@veridian.io",
+          "slack": "#finance-requests",
+          "handles": [
+            "Home office equipment $401–$1,000 (manager approval required)",
+            "Software licenses over $100/month (IT procurement required)",
+            "Conference travel budget over $1,500",
+            "Budget exception requests"
+          ],
+          "response_sla_minutes": 480
+        },
+        {
+          "tier": 3,
+          "team": "People Ops + Finance + Department Head",
+          "contact": "people-ops@veridian.io",
+          "handles": [
+            "Ergonomics accommodation requests (medically necessary equipment, any amount)",
+            "Home office expenses over $1,000",
+            "L&D budget overrun requests",
+            "Annual hardware refresh requests"
+          ],
+          "response_sla_minutes": 1440
+        }
+      ],
+      "automatic_actions": [
+        "Expensify auto-notifies manager for any expense over $400",
+        "Software subscription purchases not through IT procurement flagged for Finance review",
+        "Ergonomics accommodation request triggers People Ops workflow"
+      ]
+    },
+    {
+      "intent": "general_question",
+      "description": "Policy questions, IT how-tos, redirects to People Ops or Facilities, misc non-incident queries",
+      "sla_overrides": {
+        "P1": "Not applicable for general questions",
+        "P2": "Not applicable for general questions",
+        "P3": "Best-effort response within 1 business day; most questions resolved by KB or redirect"
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "team": "Self-service (IT Knowledge Base + Confluence)",
+          "contact": "confluence.veridian.io/it",
+          "handles": [
+            "Policy questions (IT, HR, Facilities)",
+            "How-to queries for standard tools",
+            "Jira project and process routing questions",
+            "WiFi, office network, and facilities questions"
+          ],
+          "response_sla_minutes": 0
+        },
+        {
+          "tier": 2,
+          "team": "IT Ops / People Ops / Facilities (depending on topic)",
+          "contact": "it-help@veridian.io",
+          "slack": "#it-help",
+          "handles": [
+            "Questions not answered by KB",
+            "IT policy clarification",
+            "Redirects to People Ops (PTO, benefits, HR) or Facilities (parking, badge, building)"
+          ],
+          "response_sla_minutes": 480
+        }
+      ],
+      "automatic_actions": [
+        "HR-related questions (PTO, benefits, payroll) auto-routed to People Ops queue",
+        "Facilities-related questions (parking, building access, office logistics) auto-routed to Facilities queue"
+      ]
+    }
+  ]
+}
