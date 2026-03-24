@@ -83,8 +83,8 @@ pip install -r requirements.txt && jupyter notebook
 **Optional — Streamlit app:**
 
 ```bash
-# From mistral-it-agent/ (after running notebooks 01 + 02)
-streamlit run app.py
+# From the repo root (after running notebooks 01 + 02)
+uv run streamlit run mistral-it-agent/app.py
 ```
 
 > **Colab users:** each notebook handles the API key via `google.colab.userdata`.
