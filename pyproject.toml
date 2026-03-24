@@ -13,6 +13,8 @@ dependencies = [
     "scikit-learn",
     "python-dotenv",
     "rich",
+    "jupyter>=1.1.1",
+    "ipywidgets>=8.1.8",
 ]
 
 [build-system]
@@ -26,3 +28,6 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["mistral-it-agent/tests"]
+markers = [
+    "integration: tests that call the live Mistral API (require MISTRAL_API_KEY)",
+]

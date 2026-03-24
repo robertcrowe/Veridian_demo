@@ -1,6 +1,6 @@
 # mistral-it-agent
 
-A full end-to-end demo showing how **Mistral Classifier Factory** reduces tool call
+A full end-to-end demo showing how **Mistral SFT fine-tuning** reduces tool call
 overhead in a production agentic loop — using Veridian Systems, a fictional B2B SaaS
 company, as the setting.
 
@@ -18,8 +18,8 @@ Runs entirely on La Plateforme. The only thing that changes for a Forge deployme
    [Employee request]                      [Employee request]
             │                                        │
             │                             ┌──────────▼──────────────────────┐
-            │                             │  Layer 1: Classifier Factory    │
-            │                             │  ministral-3b-latest            │
+            │                             │  Layer 1: SFT Classifier        │
+            │                             │  open-mistral-nemo              │
             │                             │  fine-tuned on Veridian tickets │
             │                             │  → intent label + confidence    │
             │                             └──────────┬──────────────────────┘
@@ -50,7 +50,7 @@ measures what the classifier saves: tool calls, LLM calls, and latency.
 - Python 3.12+
 - A **Mistral API key** from [console.mistral.ai](https://console.mistral.ai)
 - Estimated API cost for Notebook 02 (fine-tuning): **~$2–5** on a 60-example dataset
-  with 100 training steps on `ministral-3b-latest`
+  with 100 training steps on `open-mistral-nemo`
 - Estimated API cost for Notebook 03 (5 scenarios × 2 agents): **~$0.20–0.50**
 
 ---
@@ -76,8 +76,8 @@ pip install -r requirements.txt && jupyter notebook
 
 | Step | Notebook | What it does | API cost |
 |---|---|---|---|
-| 1 | `01_data_prep.ipynb` | Converts `raw_tickets.json` to Classifier Factory JSONL, uploads to Mistral Files API | ~$0 |
-| 2 | `02_train_classifier.ipynb` | Submits `job_type="classifier"` fine-tuning job, polls to completion, evaluates on held-out test set | ~$2–5 |
+| 1 | `01_data_prep.ipynb` | Converts `raw_tickets.json` to SFT JSONL, uploads to Mistral Files API | ~$0 |
+| 2 | `02_train_classifier.ipynb` | Submits standard SFT fine-tuning job on `open-mistral-nemo`, polls to completion, evaluates on held-out test set | ~$2–5 |
 | 3 | `03_agent_demo.ipynb` | Runs 5 preset scenarios through both agents, side-by-side comparison | ~$0.20–0.50 |
 
 **Optional — Streamlit app:**
@@ -94,17 +94,22 @@ streamlit run app.py
 
 ## The three layers
 
-### Layer 1 — Classifier Factory model
+### Layer 1 — SFT classifier model
 
-A `ministral-3b-latest` model fine-tuned with `job_type="classifier"` on 42 labelled
-Veridian IT support tickets (70% of the 60-ticket corpus). The training data format is:
+A `open-mistral-nemo` model fine-tuned with standard SFT on 42 labelled Veridian IT
+support tickets (70% of the 60-ticket corpus). The training data format is:
 
 ```json
-{"text": "I can't pull from Nexus — 401 errors", "labels": {"intent": "access_request"}}
+{"messages": [
+  {"role": "system",    "content": "Classify the IT support request into exactly one of the following categories: access_request, security_incident, hardware_issue, software_issue, onboarding, payments_incident, expense_request, general_question. Respond with only the category label, nothing else."},
+  {"role": "user",      "content": "I can't pull from Nexus — 401 errors"},
+  {"role": "assistant", "content": "access_request"}
+]}
 ```
 
-At inference, the model returns a probability distribution over 8 intent classes in a
-single forward pass (~50–150 ms). No sampling, no chain-of-thought.
+At inference, the model is called at `temperature=0` and returns a single intent label
+directly as text (~50–150 ms). No sampling, no chain-of-thought. Confidence is fixed at
+`0.95` for a recognised label — surfaced in the UI as a routing confidence badge.
 
 **The 8 intent labels** (fixed — do not rename):
 
@@ -124,7 +129,7 @@ single forward pass (~50–150 ms). No sampling, no chain-of-thought.
 Maps the predicted intent to a restricted tool set and injects the intent into the
 system prompt:
 
-> *"The request has been pre-classified as: access_request (confidence: 94%).
+> *"The request has been pre-classified as: access_request (confidence: 95%).
 > Route accordingly. Only call tools if additional information is needed beyond
 > what you already know about this intent category."*
 
@@ -141,6 +146,23 @@ dict — see `CLAUDE.md` for the full interface contract.
 
 ---
 
+## Testing
+
+```bash
+# Unit tests — no API key required
+make test
+uv run pytest -m "not integration"
+
+# Integration tests — require MISTRAL_API_KEY in .env
+uv run pytest -m integration -v
+```
+
+Unit tests (43) mock the Mistral client entirely. Integration tests exercise the live
+API using `mistral-small-latest` to keep costs low (~$0.01 per run). The SFT classifier
+integration tests are automatically skipped unless `data/classifier_model_id.txt` exists.
+
+---
+
 ## What this demo actually simulates vs. what Forge adds
 
 This demo runs entirely on La Plateforme shared infrastructure. It is an honest
@@ -148,7 +170,7 @@ simulation of a Forge-based deployment, not the real thing.
 
 | Aspect | This demo | With Forge |
 |---|---|---|
-| **Model training** | Classifier Factory on La Plateforme (public cloud) | Same API, `server_url=` points to your Forge instance |
+| **Model training** | SFT fine-tuning on La Plateforme (public cloud) | Same API, `server_url=` points to your Forge instance |
 | **Data residency** | Training data leaves your network | All training and inference stays on-prem or in your VPC |
 | **Generative model** | `mistral-large-latest` (shared) | Dedicated instance; optionally continued pre-trained on your corpus |
 | **Tool integrations** | In-memory stubs (`create_ticket`, `get_escalation_policy`) | ServiceNow, Confluence, Okta, PagerDuty via real API connectors |
@@ -190,8 +212,8 @@ To move from this demo to a production system:
    PagerDuty/OpsGenie rules; `search_knowledge_base` → Confluence/Notion search API.
 
 2. **Replace the classifier endpoint with a Forge-hosted model** — change `server_url=`
-   in the Mistral client constructor. The `client.classifiers.classify()` call is
-   identical.
+   in the Mistral client constructor. The `client.chat.complete()` call in
+   `AdaptedAgent._classify()` is identical.
 
 3. **Scale training data** — 100–200 labelled examples per class for production accuracy.
    Consider a human-in-the-loop labelling pipeline for ongoing retraining.

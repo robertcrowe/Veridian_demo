@@ -19,9 +19,15 @@ mistral-it-agent/data/val.jsonl
 mistral-it-agent/data/test.jsonl
 mistral-it-agent/data/classifier_model_id.txt
 mistral-it-agent/data/finetune_config.json
+mistral-it-agent/.ipynb_checkpoints
+mistral-it-agent/.ipynb_checkpoints/*
 
 # Test / tool cache
 .pytest_cache/
 
 # Claude Code session guidance — not for public repo
 CLAUDE.md
+
+# Private stuff
+demo-script.md
+modelcards.txt

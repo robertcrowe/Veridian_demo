@@ -175,15 +175,15 @@ class TestJsonlSplits:
             except json.JSONDecodeError as exc:
                 pytest.fail(f"{filename} line {i} is not valid JSON: {exc}")
 
-            assert "text" in record, (
-                f"{filename} line {i} missing 'text' key"
+            assert "messages" in record, (
+                f"{filename} line {i} missing 'messages' key"
             )
-            assert "labels" in record, (
-                f"{filename} line {i} missing 'labels' key"
+            msgs = record["messages"]
+            roles = [m["role"] for m in msgs]
+            assert roles == ["system", "user", "assistant"], (
+                f"{filename} line {i} expected roles [system, user, assistant], got {roles}"
             )
-            assert "intent" in record["labels"], (
-                f"{filename} line {i} missing 'labels.intent' key"
-            )
-            assert record["labels"]["intent"] in INTENT_LABELS, (
-                f"{filename} line {i} has unknown intent '{record['labels']['intent']}'"
+            intent = msgs[-1]["content"]
+            assert intent in INTENT_LABELS, (
+                f"{filename} line {i} has unknown intent '{intent}'"
             )

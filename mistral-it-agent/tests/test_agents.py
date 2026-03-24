@@ -44,18 +44,21 @@ def _make_mock_client(content: str = "Here is my response.") -> MagicMock:
     return mock_client
 
 
-def _make_mock_classifier(intent: str, confidence: float) -> MagicMock:
+def _make_mock_classifier_chat_response(intent: str) -> MagicMock:
     """
-    Return a classifiers.classify return value that reports a single intent.
+    Return a chat.complete response whose content is the intent label.
+    Used to mock the SFT classifier call inside AdaptedAgent._classify().
     """
-    mock_probs = {intent: confidence, "general_question": round(1 - confidence, 4)}
+    mock_msg = MagicMock()
+    mock_msg.content = intent
+    mock_msg.tool_calls = None
 
-    mock_result = MagicMock()
-    mock_result.probabilities = mock_probs
+    mock_choice = MagicMock()
+    mock_choice.message = mock_msg
 
-    mock_classify_response = MagicMock()
-    mock_classify_response.results = [mock_result]
-    return mock_classify_response
+    mock_response = MagicMock()
+    mock_response.choices = [mock_choice]
+    return mock_response
 
 
 # ---------------------------------------------------------------------------
@@ -137,17 +140,24 @@ class TestAdaptedAgent:
     def _make_adapted_agent(
         self,
         intent: str = "access_request",
-        confidence: float = 0.94,
+        confidence: float = 0.95,  # unused — SFT returns fixed 0.95; kept for API compat
         response_text: str = "I have handled your request.",
     ) -> tuple[AdaptedAgent, MagicMock]:
-        """Return (agent, mock_client) with classifier and chat both mocked."""
-        mock_client = _make_mock_client(response_text)
-        mock_client.classifiers.classify.return_value = _make_mock_classifier(
-            intent, confidence
-        )
+        """Return (agent, mock_client) with SFT classifier and agentic loop both mocked.
+
+        chat.complete is called twice per AdaptedAgent.run():
+          1st call  — SFT classifier: returns the intent label as plain text
+          2nd call  — agentic loop:   returns the final response (no tool calls)
+        """
+        cls_response  = _make_mock_classifier_chat_response(intent)
+        loop_response = _make_mock_client(response_text).chat.complete.return_value
+
+        mock_client = MagicMock()
+        mock_client.chat.complete.side_effect = [cls_response, loop_response]
+
         agent = AdaptedAgent(
             client=mock_client,
-            classifier_model_id="ft:ministral-3b:test::classifier",
+            classifier_model_id="ft:ministral-3b:test::sft",
             model="mistral-large-latest",
         )
         return agent, mock_client
@@ -172,13 +182,11 @@ class TestAdaptedAgent:
         )
 
     def test_adapted_agent_returns_classifier_metadata(self):
-        agent, _ = self._make_adapted_agent(
-            intent="access_request", confidence=0.94
-        )
+        agent, _ = self._make_adapted_agent(intent="access_request")
         result = agent.run("I need Nexus access for my team.")
 
         assert result["classifier_intent"] == "access_request"
-        assert abs(result["classifier_confidence"] - 0.94) < 1e-6
+        assert abs(result["classifier_confidence"] - 0.95) < 1e-6
         assert result["classifier_latency_ms"] >= 0
 
     def test_adapted_agent_injects_classifier_intent_into_system_prompt(self):
@@ -196,7 +204,7 @@ class TestAdaptedAgent:
         system_message = next(m for m in messages if m["role"] == "system")
 
         assert "access_request" in system_message["content"]
-        assert "94%" in system_message["content"]
+        assert "95%" in system_message["content"]
 
     def test_adapted_agent_uses_only_two_tools(self):
         """AdaptedAgent must restrict tools to create_ticket + get_escalation_policy."""
@@ -214,7 +222,7 @@ class TestAdaptedAgent:
     def test_adapted_agent_mock_classifier_when_no_model_id(self):
         """
         Passing classifier_model_id=None must use the keyword-based mock,
-        not call client.classifiers.classify.
+        not call client.chat.complete for classification (only called once for the loop).
         """
         mock_client = _make_mock_client()
         agent = AdaptedAgent(
@@ -223,7 +231,7 @@ class TestAdaptedAgent:
         )
         result = agent.run("There's a phishing email in my inbox.")
 
-        mock_client.classifiers.classify.assert_not_called()
+        assert mock_client.chat.complete.call_count == 1  # loop only, not classifier
         assert result["classifier_intent"] != ""
         assert 0 < result["classifier_confidence"] <= 1
 
