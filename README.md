@@ -4,8 +4,10 @@ A full end-to-end demo showing how **Mistral SFT fine-tuning** reduces tool call
 overhead in a production agentic loop — using Veridian Systems, a fictional B2B SaaS
 company, as the setting.
 
-Runs entirely on La Plateforme. The only thing that changes for a Forge deployment is
-`server_url=` in the client constructor.
+Uses **Mistral La Plateforme** for the agentic loop (`mistral-large-latest`) and
+**Together.ai** for classifier fine-tuning and inference — a runnable analogue for a
+Forge deployment. The only code change for Forge is `server_url=` in the client
+constructor.
 
 ---
 
@@ -19,8 +21,8 @@ Runs entirely on La Plateforme. The only thing that changes for a Forge deployme
             │                                        │
             │                             ┌──────────▼──────────────────────┐
             │                             │  Layer 1: SFT Classifier        │
-            │                             │  open-mistral-nemo              │
-            │                             │  fine-tuned on Veridian tickets │
+            │                             │  Mistral-7B-Instruct-v0.2       │
+            │                             │  fine-tuned on Together.ai      │
             │                             │  → intent label + confidence    │
             │                             └──────────┬──────────────────────┘
             │                                        │
@@ -171,7 +173,7 @@ simulation of a Forge-based deployment, not the real thing.
 
 | Aspect | This demo | With Forge |
 |---|---|---|
-| **Model training** | SFT fine-tuning on La Plateforme (public cloud) | Same API, `server_url=` points to your Forge instance |
+| **Model training** | SFT fine-tuning on Together.ai (Forge analogue) | Same API, `server_url=` points to your Forge instance |
 | **Data residency** | Training data leaves your network | All training and inference stays on-prem or in your VPC |
 | **Generative model** | `mistral-large-latest` (shared) | Dedicated instance; optionally continued pre-trained on your corpus |
 | **Tool integrations** | In-memory stubs (`create_ticket`, `get_escalation_policy`) | ServiceNow, Confluence, Okta, PagerDuty via real API connectors |
