@@ -1,7 +1,8 @@
 """
 Integration tests — require a live MISTRAL_API_KEY in mistral-it-agent/.env.
+Classifier tests additionally require TOGETHER_API_KEY and data/classifier_model_id.txt.
 
-All tests are automatically skipped when MISTRAL_API_KEY is not set.
+All tests are automatically skipped when the required keys are not set.
 
 Run integration tests only:
     uv run pytest mistral-it-agent/tests/test_integration.py -v
@@ -11,8 +12,9 @@ Run alongside the full suite:
 
 Tests use mistral-small-latest (cheap, supports function calling) rather than
 mistral-large-latest so the suite stays inexpensive to run regularly.
-The SFT classifier test additionally requires data/classifier_model_id.txt to
-exist (written by 02_train_classifier.ipynb after a successful training job).
+The SFT classifier tests additionally require data/classifier_model_id.txt
+(written by 02_train_classifier.ipynb after a successful training job) and
+TOGETHER_API_KEY to be set in .env.
 """
 
 import os
@@ -21,13 +23,14 @@ from pathlib import Path
 import pytest
 from dotenv import load_dotenv
 
-# Load .env from the mistral-it-agent directory so the key is available when
+# Load .env from the mistral-it-agent directory so keys are available when
 # running pytest from the repo root.
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-_API_KEY = os.getenv("MISTRAL_API_KEY")
-_SMALL_MODEL = "mistral-small-latest"   # cheap model with function-calling support
-_DATA_DIR = Path(__file__).parent.parent / "data"
+_API_KEY        = os.getenv("MISTRAL_API_KEY")
+_TOGETHER_KEY   = os.getenv("TOGETHER_API_KEY")
+_SMALL_MODEL    = "mistral-small-latest"   # cheap model with function-calling support
+_DATA_DIR       = Path(__file__).parent.parent / "data"
 
 pytestmark = [
     pytest.mark.integration,
@@ -154,10 +157,12 @@ def test_adapted_agent_uses_fewer_tools_than_base(client):
 
 
 # ---------------------------------------------------------------------------
-# 5. SFT classifier (skipped unless classifier_model_id.txt exists)
+# 5. Fine-tuned classifier via Together.ai
+#    Skipped unless classifier_model_id.txt exists AND TOGETHER_API_KEY is set
 # ---------------------------------------------------------------------------
 
 _CLASSIFIER_MODEL_ID_FILE = _DATA_DIR / "classifier_model_id.txt"
+
 
 @pytest.fixture(scope="module")
 def classifier_model_id():
@@ -166,14 +171,23 @@ def classifier_model_id():
     return _CLASSIFIER_MODEL_ID_FILE.read_text().strip()
 
 
-def test_sft_classifier_returns_known_label(client, classifier_model_id):
-    """Fine-tuned SFT model returns a valid intent label for a clear ticket."""
+@pytest.fixture(scope="module")
+def together_client():
+    if not _TOGETHER_KEY:
+        pytest.skip("TOGETHER_API_KEY not set")
+    from together import Together
+    return Together(api_key=_TOGETHER_KEY)
+
+
+def test_sft_classifier_returns_known_label(client, together_client, classifier_model_id):
+    """Fine-tuned model on Together.ai returns a valid intent label for a clear ticket."""
     from agents.adapted_agent import AdaptedAgent, _INTENT_LABELS
 
     agent = AdaptedAgent(
         client=client,
         classifier_model_id=classifier_model_id,
         model=_SMALL_MODEL,
+        classifier_client=together_client,
     )
     result = agent.run("My laptop screen has a crack running across it.")
 
@@ -181,7 +195,7 @@ def test_sft_classifier_returns_known_label(client, classifier_model_id):
     assert result["classifier_confidence"] > 0
 
 
-def test_sft_classifier_payments_incident(client, classifier_model_id):
+def test_sft_classifier_payments_incident(client, together_client, classifier_model_id):
     """Fine-tuned model classifies a prod-payments incident correctly."""
     from agents.adapted_agent import AdaptedAgent
 
@@ -189,6 +203,7 @@ def test_sft_classifier_payments_incident(client, classifier_model_id):
         client=client,
         classifier_model_id=classifier_model_id,
         model=_SMALL_MODEL,
+        classifier_client=together_client,
     )
     result = agent.run(
         "prod-payments is throwing 500 errors, transactions are failing."

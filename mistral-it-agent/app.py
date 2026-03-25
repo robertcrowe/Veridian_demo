@@ -2,13 +2,13 @@
 Streamlit UI — Veridian IT Support Agent Demo
 
 Side-by-side comparison: base agent (no routing) vs adapted agent
-(Classifier Factory intent pre-routing). Both agents run on every query
-so the effect of the classifier is visible in real time.
+(Together.ai fine-tuned intent classifier pre-routing). Both agents run on every
+query so the effect of the classifier is visible in real time.
 
 Run:
-    streamlit run app.py
-    # or with an explicit key:
-    MISTRAL_API_KEY=sk-... streamlit run app.py
+    uv run streamlit run mistral-it-agent/app.py
+    # or with explicit keys:
+    MISTRAL_API_KEY=sk-... TOGETHER_API_KEY=... uv run streamlit run mistral-it-agent/app.py
 """
 
 from __future__ import annotations
@@ -23,11 +23,11 @@ from dotenv import load_dotenv
 # Make agents/ importable when running from mistral-it-agent/
 sys.path.insert(0, str(Path(__file__).parent))
 
-load_dotenv()
+load_dotenv(override=True)
 
 # Must be the first Streamlit call
 st.set_page_config(
-    page_title="Veridian IT Support — Classifier Factory Demo",
+    page_title="Veridian IT Support — Intent Routing Demo",
     page_icon="🤖",
     layout="wide",
 )
@@ -55,18 +55,48 @@ def _get_classifier_model_id() -> str | None:
     return None
 
 
+def _ensure_endpoint_started(together_client, endpoint_name: str) -> None:
+    """Start the dedicated endpoint if stopped and wait until STARTED."""
+    import time
+    ep = together_client.endpoints.retrieve(endpoint_name)
+    if ep.state == "STARTED":
+        return
+    if ep.state == "STOPPED":
+        together_client.endpoints.update(endpoint_name, state="STARTED")
+    while True:
+        ep = together_client.endpoints.retrieve(endpoint_name)
+        if ep.state == "STARTED":
+            return
+        if ep.state == "ERROR":
+            raise RuntimeError(f"Together.ai endpoint '{endpoint_name}' is in ERROR state.")
+        time.sleep(10)
+
+
 @st.cache_resource(show_spinner="Initialising agents…")
-def _load_agents(api_key: str, classifier_model_id: str | None):
+def _load_agents(api_key: str, together_api_key: str | None, classifier_model_id: str | None):
     from mistralai.client import Mistral
     from agents.base_agent import BaseAgent
     from agents.adapted_agent import AdaptedAgent
 
-    client = Mistral(api_key=api_key)
-    base = BaseAgent(client=client, model="mistral-large-latest")
+    mistral_client = Mistral(api_key=api_key)
+
+    classifier_client = None
+    if classifier_model_id and together_api_key:
+        from together import Together
+        classifier_client = Together(api_key=together_api_key)
+        # Ensure the dedicated endpoint is running before agents handle queries
+        _endpoint_id_file = _DATA_DIR / "endpoint_id.txt"
+        if _endpoint_id_file.exists():
+            _endpoint_id = _endpoint_id_file.read_text().strip()
+            if _endpoint_id:
+                _ensure_endpoint_started(classifier_client, _endpoint_id)
+
+    base = BaseAgent(client=mistral_client, model="mistral-large-latest")
     adapted = AdaptedAgent(
-        client=client,
+        client=mistral_client,
         classifier_model_id=classifier_model_id,
         model="mistral-large-latest",
+        classifier_client=classifier_client,
     )
     return base, adapted
 
@@ -87,16 +117,25 @@ with st.sidebar:
         help="Your La Plateforme API key from console.mistral.ai",
     )
 
+    together_api_key = st.text_input(
+        "Together.ai API Key",
+        value=os.getenv("TOGETHER_API_KEY", ""),
+        type="password",
+        help="Your Together.ai API key for the fine-tuned classifier",
+    )
+
     st.divider()
     st.subheader("Classifier model")
 
     if classifier_model_id:
         st.code(classifier_model_id, language=None)
-        st.caption("Fine-tuned on 42 Veridian IT tickets via Mistral Classifier Factory")
+        if together_api_key:
+            st.caption("Fine-tuned Mistral-7B-Instruct-v0.2 on Veridian IT tickets via Together.ai")
+        else:
+            st.caption("Model found but no Together.ai key — using keyword mock.")
     else:
         st.caption("No trained model found — using keyword mock.")
         st.caption("Run `02_train_classifier.ipynb` to train the real classifier.")
-        st.caption("Fine-tuned on 42 Veridian IT tickets via Mistral Classifier Factory")
 
     st.divider()
     st.subheader("In production")
@@ -131,7 +170,7 @@ with st.sidebar:
 st.title("Veridian IT Support Agent")
 st.caption(
     "**Base Agent** (all tools, no routing) vs "
-    "**Adapted Agent** (Classifier Factory intent pre-routing). "
+    "**Adapted Agent** (fine-tuned intent classifier pre-routing). "
     "Both agents run on every query — compare tool calls, latency, and routing explainability."
 )
 
@@ -139,7 +178,7 @@ if not api_key:
     st.warning("Enter your Mistral API key in the sidebar to begin.")
     st.stop()
 
-base_agent, adapted_agent = _load_agents(api_key, classifier_model_id)
+base_agent, adapted_agent = _load_agents(api_key, together_api_key or None, classifier_model_id)
 
 if "history" not in st.session_state:
     st.session_state.history: list[tuple[str, dict, dict]] = []
@@ -188,7 +227,7 @@ for q, base_r, adapted_r in reversed(st.session_state.history):
     # ── Adapted Agent column ───────────────────────────────────────────────
     with col_adapted:
         st.subheader("Adapted Agent")
-        st.caption("Classifier Factory pre-routes intent before the first tool call")
+        st.caption("Fine-tuned classifier pre-routes intent before the first tool call")
 
         # Classifier row — extra vs base agent
         intent = adapted_r["classifier_intent"]
@@ -257,6 +296,5 @@ for q, base_r, adapted_r in reversed(st.session_state.history):
 
 st.caption(
     "Powered by [Mistral AI](https://mistral.ai) · "
-    "Classifier Factory docs: "
-    "https://docs.mistral.ai/capabilities/finetuning/classifier_factory"
+    "Classifier fine-tuned on [Together.ai](https://together.ai)"
 )

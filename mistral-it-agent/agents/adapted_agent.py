@@ -3,11 +3,15 @@ Adapted IT support agent — uses the SFT fine-tuned model for intent pre-routin
 
 Architecture
 ------------
-1. Classify the user message with the fine-tuned ministral-3b SFT model.
+1. Classify the user message with the fine-tuned Mistral-7B-Instruct-v0.2 model (hosted on
+   Together.ai). Falls back to a keyword mock when no model is available.
 2. Inject the predicted intent + confidence into the system prompt.
 3. Run the agentic loop with a restricted tool set:
    only create_ticket + get_escalation_policy (KB search is redundant when the
    classifier already knows the intent category).
+
+The classifier call uses an OpenAI-compatible client (Together.ai) passed in via
+`classifier_client`. The agentic loop uses the standard Mistral client.
 
 This is the "after fine-tuning" agent for the demo comparison.
 """
@@ -76,14 +80,19 @@ class AdaptedAgent:
     Parameters
     ----------
     client : Mistral
-        Authenticated Mistral client.
+        Authenticated Mistral client — used for the agentic loop only.
     classifier_model_id : str | None
-        Fine-tuned SFT model ID from 02_train_classifier.ipynb.
+        Fine-tuned model ID (e.g. Together.ai output_name from 02_train_classifier.ipynb).
         Pass None to use the keyword-based mock (local testing without a trained model).
     model : str
         Generative model for the agentic loop.
     max_iterations : int
         Maximum number of tool-call rounds before giving up.
+    classifier_client : optional
+        OpenAI-compatible client for the classifier call (e.g. Together.ai client).
+        When provided, uses client.completions.create() with the Mistral [INST] prompt
+        format (base model, no chat template). When None, falls back to
+        self.client.chat.complete() (Mistral).
     """
 
     def __init__(
@@ -92,36 +101,57 @@ class AdaptedAgent:
         classifier_model_id: str | None,
         model: str = "mistral-large-latest",
         max_iterations: int = 6,
+        classifier_client=None,
     ):
         self.client = client
         self.classifier_model_id = classifier_model_id
         self.model = model
         self.max_iterations = max_iterations
+        self._classifier_client = classifier_client
 
-    def _classify(self, user_message: str) -> tuple[str, float]:
+    def _classify(self, user_message: str) -> tuple[str, float, int, int]:
         """
-        Return (intent, confidence).
-        Uses the fine-tuned SFT model if available, otherwise falls back to the mock.
-        The SFT model is prompted to output only the intent label; confidence is
-        fixed at 0.95 for a recognised label and 0.70 if the output is unexpected.
+        Return (intent, confidence, prompt_tokens, completion_tokens).
+        Uses the fine-tuned model via Together.ai if classifier_client and
+        classifier_model_id are set. Falls back to keyword mock otherwise.
+        Confidence is fixed at 0.95 for a recognised label, 0.70 if unexpected.
+        Token counts are 0 for the keyword mock path.
         """
         if self.classifier_model_id is None:
-            return _mock_classify(user_message)
+            intent, confidence = _mock_classify(user_message)
+            return intent, confidence, 0, 0
 
-        response = self.client.chat.complete(
-            model=self.classifier_model_id,
-            messages=[
-                {"role": "system", "content": _CLASSIFIER_SYSTEM_PROMPT},
-                {"role": "user", "content": user_message},
-            ],
-            temperature=0,
-            max_tokens=20,
-        )
-        intent = response.choices[0].message.content.strip().lower()
+        if self._classifier_client is not None:
+            # Mistral-7B-v0.1 is a base model with no chat template — use the
+            # text completions endpoint with the Mistral instruction format.
+            prompt = f"<s>[INST] {_CLASSIFIER_SYSTEM_PROMPT}\n\n{user_message} [/INST]"
+            response = self._classifier_client.completions.create(
+                model=self.classifier_model_id,
+                prompt=prompt,
+                temperature=0,
+                max_tokens=20,
+            )
+            intent = response.choices[0].text.strip().lower()
+        else:
+            # Mistral client (legacy / fallback path)
+            response = self.client.chat.complete(
+                model=self.classifier_model_id,
+                messages=msgs,
+                temperature=0,
+                max_tokens=20,
+            )
+            intent = response.choices[0].message.content.strip().lower()
+
+        try:
+            cls_prompt_tokens = int(response.usage.prompt_tokens)
+            cls_completion_tokens = int(response.usage.completion_tokens)
+        except (AttributeError, TypeError, ValueError):
+            cls_prompt_tokens = cls_completion_tokens = 0
+
         if intent not in _INTENT_LABELS:
             intent = "general_question"
-            return intent, 0.70
-        return intent, 0.95
+            return intent, 0.70, cls_prompt_tokens, cls_completion_tokens
+        return intent, 0.95, cls_prompt_tokens, cls_completion_tokens
 
     def run(self, user_message: str) -> dict:
         """
@@ -145,7 +175,7 @@ class AdaptedAgent:
 
         # Step 1: classify
         t_cls = time.monotonic()
-        intent, confidence = self._classify(user_message)
+        intent, confidence, cls_prompt_tokens, cls_completion_tokens = self._classify(user_message)
         classifier_latency_ms = (time.monotonic() - t_cls) * 1000
 
         # Step 2: build intent-aware system prompt
@@ -173,4 +203,6 @@ class AdaptedAgent:
             "classifier_intent": intent,
             "classifier_confidence": confidence,
             "classifier_latency_ms": classifier_latency_ms,
+            "classifier_prompt_tokens": cls_prompt_tokens,
+            "classifier_completion_tokens": cls_completion_tokens,
         }

@@ -18,6 +18,9 @@ mistral-it-agent/data/train.jsonl
 mistral-it-agent/data/val.jsonl
 mistral-it-agent/data/test.jsonl
 mistral-it-agent/data/classifier_model_id.txt
+mistral-it-agent/data/raw_tickets_synthetic.json
+mistral-it-agent/data/endpoint_name.txt
+mistral-it-agent/data/endpoint_id.txt
 mistral-it-agent/data/finetune_config.json
 mistral-it-agent/.ipynb_checkpoints
 mistral-it-agent/.ipynb_checkpoints/*
@@ -31,3 +34,4 @@ CLAUDE.md
 # Private stuff
 demo-script.md
 modelcards.txt
+finetune_config_bak1.txt

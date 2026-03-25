@@ -44,21 +44,21 @@ def _make_mock_client(content: str = "Here is my response.") -> MagicMock:
     return mock_client
 
 
-def _make_mock_classifier_chat_response(intent: str) -> MagicMock:
+def _make_mock_together_client(intent: str) -> MagicMock:
     """
-    Return a chat.complete response whose content is the intent label.
-    Used to mock the SFT classifier call inside AdaptedAgent._classify().
+    Return a MagicMock Together.ai client whose completions.create() returns
+    the given intent label. AdaptedAgent._classify() uses the text completions
+    endpoint (not chat) because Mistral-7B-v0.1 is a base model with no chat template.
     """
-    mock_msg = MagicMock()
-    mock_msg.content = intent
-    mock_msg.tool_calls = None
-
     mock_choice = MagicMock()
-    mock_choice.message = mock_msg
+    mock_choice.text = intent
 
     mock_response = MagicMock()
     mock_response.choices = [mock_choice]
-    return mock_response
+
+    mock_client = MagicMock()
+    mock_client.completions.create.return_value = mock_response
+    return mock_client
 
 
 # ---------------------------------------------------------------------------
@@ -143,24 +143,21 @@ class TestAdaptedAgent:
         confidence: float = 0.95,  # unused — SFT returns fixed 0.95; kept for API compat
         response_text: str = "I have handled your request.",
     ) -> tuple[AdaptedAgent, MagicMock]:
-        """Return (agent, mock_client) with SFT classifier and agentic loop both mocked.
+        """Return (agent, loop_client) with Together.ai classifier and agentic loop both mocked.
 
-        chat.complete is called twice per AdaptedAgent.run():
-          1st call  — SFT classifier: returns the intent label as plain text
-          2nd call  — agentic loop:   returns the final response (no tool calls)
+        classifier_client (Together.ai mock): completions.create() returns the intent label
+        loop_client       (Mistral mock):     chat.complete() returns the final response
         """
-        cls_response  = _make_mock_classifier_chat_response(intent)
-        loop_response = _make_mock_client(response_text).chat.complete.return_value
-
-        mock_client = MagicMock()
-        mock_client.chat.complete.side_effect = [cls_response, loop_response]
+        cls_client  = _make_mock_together_client(intent)
+        loop_client = _make_mock_client(response_text)
 
         agent = AdaptedAgent(
-            client=mock_client,
-            classifier_model_id="ft:ministral-3b:test::sft",
+            client=loop_client,
+            classifier_model_id="account/Mistral-7B-Instruct-v0.2-veridian-intent",
             model="mistral-large-latest",
+            classifier_client=cls_client,
         )
-        return agent, mock_client
+        return agent, loop_client
 
     def test_adapted_agent_returns_expected_keys(self):
         agent, _ = self._make_adapted_agent()

@@ -49,8 +49,8 @@ measures what the classifier saves: tool calls, LLM calls, and latency.
 
 - Python 3.12+
 - A **Mistral API key** from [console.mistral.ai](https://console.mistral.ai)
-- Estimated API cost for Notebook 02 (fine-tuning): **~$2–5** on a 60-example dataset
-  with 100 training steps on `open-mistral-nemo`
+- A **Together.ai API key** from [api.together.ai](https://api.together.ai) (for fine-tuning and classifier inference)
+- Estimated API cost for Notebook 02 (fine-tuning on Together.ai): **~$0.50–2** on a 60-example dataset
 - Estimated API cost for Notebook 03 (5 scenarios × 2 agents): **~$0.20–0.50**
 
 ---
@@ -68,6 +68,7 @@ Or without make:
 ```bash
 cd mistral-it-agent
 echo "MISTRAL_API_KEY=sk-..." > .env
+echo "TOGETHER_API_KEY=..." >> .env
 uv run jupyter notebook   # run from repo root, or:
 pip install -r requirements.txt && jupyter notebook
 ```
@@ -76,8 +77,8 @@ pip install -r requirements.txt && jupyter notebook
 
 | Step | Notebook | What it does | API cost |
 |---|---|---|---|
-| 1 | `01_data_prep.ipynb` | Converts `raw_tickets.json` to SFT JSONL, uploads to Mistral Files API | ~$0 |
-| 2 | `02_train_classifier.ipynb` | Submits standard SFT fine-tuning job on `open-mistral-nemo`, polls to completion, evaluates on held-out test set | ~$2–5 |
+| 1 | `01_data_prep.ipynb` | Converts `raw_tickets.json` to SFT JSONL split files | ~$0 |
+| 2 | `02_train_classifier.ipynb` | Uploads JSONL to Together.ai, fine-tunes `Mistral-7B-Instruct-v0.2`, polls to completion, evaluates on held-out test set | ~$0.50–2 |
 | 3 | `03_agent_demo.ipynb` | Runs 5 preset scenarios through both agents, side-by-side comparison | ~$0.20–0.50 |
 
 **Optional — Streamlit app:**
@@ -96,7 +97,7 @@ uv run streamlit run mistral-it-agent/app.py
 
 ### Layer 1 — SFT classifier model
 
-A `open-mistral-nemo` model fine-tuned with standard SFT on 42 labelled Veridian IT
+A `Mistral-7B-Instruct-v0.2` model fine-tuned on Together.ai on 42 labelled Veridian IT
 support tickets (70% of the 60-ticket corpus). The training data format is:
 
 ```json
@@ -211,9 +212,9 @@ To move from this demo to a production system:
 1. **Replace tool stubs** — `create_ticket` → ServiceNow API; `get_escalation_policy` →
    PagerDuty/OpsGenie rules; `search_knowledge_base` → Confluence/Notion search API.
 
-2. **Replace the classifier endpoint with a Forge-hosted model** — change `server_url=`
-   in the Mistral client constructor. The `client.chat.complete()` call in
-   `AdaptedAgent._classify()` is identical.
+2. **Replace the Together.ai classifier with a Forge-hosted model** — point
+   `classifier_client` at your Forge endpoint. The `client.chat.completions.create()`
+   call in `AdaptedAgent._classify()` is identical.
 
 3. **Scale training data** — 100–200 labelled examples per class for production accuracy.
    Consider a human-in-the-loop labelling pipeline for ongoing retraining.

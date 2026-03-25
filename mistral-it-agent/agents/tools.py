@@ -325,6 +325,8 @@ def run_agent_loop(
     tool_results: list[dict] = []
     steps = 0
     llm_calls = 0
+    prompt_tokens = 0
+    completion_tokens = 0
     response = ""
     ticket_id: str | None = None
 
@@ -337,6 +339,11 @@ def run_agent_loop(
             tool_choice="auto",
         )
         llm_calls += 1
+        try:
+            prompt_tokens += int(resp.usage.prompt_tokens)
+            completion_tokens += int(resp.usage.completion_tokens)
+        except (AttributeError, TypeError, ValueError):
+            pass
         msg = resp.choices[0].message
 
         if not msg.tool_calls:
@@ -386,4 +393,6 @@ def run_agent_loop(
         "llm_calls": llm_calls,
         "latency_ms": latency_ms,
         "ticket_id": ticket_id,
+        "prompt_tokens": prompt_tokens,
+        "completion_tokens": completion_tokens,
     }

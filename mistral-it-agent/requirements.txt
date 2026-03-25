@@ -1,4 +1,5 @@
 mistralai>=2.1.2
+together>=2.5.0
 streamlit
 python-dotenv
 rich
