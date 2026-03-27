@@ -33,7 +33,7 @@
   },
   {
     "id": "INC-0005",
-    "text": "Please remove all system access for Raj Patel (raj.patel@veridian.io) immediately. His last day was today — GitHub, Nexus, AWS, Okta, Slack, Prism, everything. HR has confirmed the termination.",
+    "text": "Please remove all system access for Raj Patel (raj.patel@veridian.io) immediately. His last day was today \u2014 GitHub, Nexus, AWS, Okta, Slack, Prism, everything. HR has confirmed the termination.",
     "intent": "access_request",
     "priority": "P1",
     "resolved_by": "IT Ops",
@@ -65,11 +65,11 @@
   },
   {
     "id": "INC-0009",
-    "text": "Got a very convincing phishing email pretending to be DocuSign asking me to review a contract. The link URL was 'docusign-verify-contract.net' not docusign.com. I didn't click it but several people on the finance team might have — flagging urgently.",
+    "text": "Got a very convincing phishing email pretending to be DocuSign asking me to review a contract. The link URL was 'docusign-verify-contract.net' not docusign.com. I didn't click it but several people on the finance team might have \u2014 flagging urgently.",
     "intent": "security_incident",
     "priority": "P2",
     "resolved_by": "Security Team",
-    "resolution_summary": "SEV2 declared. Quarantined the phishing email across all inboxes via Microsoft Defender. 3 finance team members confirmed to have clicked the link — forced password resets and MFA re-enrollment. No credentials successfully harvested."
+    "resolution_summary": "SEV2 declared. Quarantined the phishing email across all inboxes via Microsoft Defender. 3 finance team members confirmed to have clicked the link \u2014 forced password resets and MFA re-enrollment. No credentials successfully harvested."
   },
   {
     "id": "INC-0010",
@@ -81,11 +81,11 @@
   },
   {
     "id": "INC-0011",
-    "text": "My work MacBook Pro M3 (asset VRD-ENG-0441) was stolen from my car last night. FileVault was enabled. I had Slack, GitHub, and Nexus open in browser tabs when I last used it. Please escalate — this is urgent.",
+    "text": "My work MacBook Pro M3 (asset VRD-ENG-0441) was stolen from my car last night. FileVault was enabled. I had Slack, GitHub, and Nexus open in browser tabs when I last used it. Please escalate \u2014 this is urgent.",
     "intent": "security_incident",
     "priority": "P1",
     "resolved_by": "Security Team",
-    "resolution_summary": "SEV2 declared. Remote wipe triggered via Jamf within 15 minutes of report. All active browser sessions, GitHub tokens, and Nexus credentials revoked. FileVault confirmed enabled — disk contents protected. Police report filed, asset decommissioned."
+    "resolution_summary": "SEV2 declared. Remote wipe triggered via Jamf within 15 minutes of report. All active browser sessions, GitHub tokens, and Nexus credentials revoked. FileVault confirmed enabled \u2014 disk contents protected. Police report filed, asset decommissioned."
   },
   {
     "id": "INC-0012",
@@ -97,7 +97,7 @@
   },
   {
     "id": "INC-0013",
-    "text": "CrowdStrike popped an alert on my machine: 'Suspicious PowerShell execution — lateral movement indicator'. I was only running a setup script for my local dev environment. Could this be a false positive? My machine is a MacBook Pro M3.",
+    "text": "CrowdStrike popped an alert on my machine: 'Suspicious PowerShell execution \u2014 lateral movement indicator'. I was only running a setup script for my local dev environment. Could this be a false positive? My machine is a MacBook Pro M3.",
     "intent": "security_incident",
     "priority": "P2",
     "resolved_by": "Security Team",
@@ -105,11 +105,11 @@
   },
   {
     "id": "INC-0014",
-    "text": "Prism access log monitoring flagged a service account (analytics-svc) pulling 40GB of customer data in the last hour — 100x normal volume. Queries started at 3am and I don't recognize this account as anything my team manages.",
+    "text": "Prism access log monitoring flagged a service account (analytics-svc) pulling 40GB of customer data in the last hour \u2014 100x normal volume. Queries started at 3am and I don't recognize this account as anything my team manages.",
     "intent": "security_incident",
     "priority": "P1",
     "resolved_by": "Security Team + Data Platform",
-    "resolution_summary": "SEV1 declared. analytics-svc account suspended within 5 minutes. Credentials had been leaked via a .env file in an internal repo. No external exfiltration confirmed — data queried but not exported outside VPC. Credentials rotated, incident report filed."
+    "resolution_summary": "SEV1 declared. analytics-svc account suspended within 5 minutes. Credentials had been leaked via a .env file in an internal repo. No external exfiltration confirmed \u2014 data queried but not exported outside VPC. Credentials rotated, incident report filed."
   },
   {
     "id": "INC-0015",
@@ -117,7 +117,7 @@
     "intent": "security_incident",
     "priority": "P2",
     "resolved_by": "Security Team + IT Ops",
-    "resolution_summary": "SEV2 raised. GitHub SSO session had persisted due to a misconfiguration in the Okta-GitHub integration. Session terminated, access revoked. Recent commits were from a pre-termination branch that auto-merged — no unauthorized post-termination access confirmed."
+    "resolution_summary": "SEV2 raised. GitHub SSO session had persisted due to a misconfiguration in the Okta-GitHub integration. Session terminated, access revoked. Recent commits were from a pre-termination branch that auto-merged \u2014 no unauthorized post-termination access confirmed."
   },
   {
     "id": "INC-0016",
@@ -133,11 +133,11 @@
     "intent": "hardware_issue",
     "priority": "P2",
     "resolved_by": "IT Ops",
-    "resolution_summary": "MDM error 8 caused by a mismatched DEP device record — the MacBook serial was assigned to the wrong enrollment group. Re-registered in Apple Business Manager, cleared the device record, and re-enrolled. Completed in 20 minutes."
+    "resolution_summary": "MDM error 8 caused by a mismatched DEP device record \u2014 the MacBook serial was assigned to the wrong enrollment group. Re-registered in Apple Business Manager, cleared the device record, and re-enrolled. Completed in 20 minutes."
   },
   {
     "id": "INC-0018",
-    "text": "My LG 4K monitor isn't being detected through my CalDigit TS4 dock. It works fine with a direct USB-C cable to the MacBook. Everything else on the dock — ethernet, USB hub — works. Just the monitor passthrough is broken.",
+    "text": "My LG 4K monitor isn't being detected through my CalDigit TS4 dock. It works fine with a direct USB-C cable to the MacBook. Everything else on the dock \u2014 ethernet, USB hub \u2014 works. Just the monitor passthrough is broken.",
     "intent": "hardware_issue",
     "priority": "P3",
     "resolved_by": "IT Ops",
@@ -153,7 +153,7 @@
   },
   {
     "id": "INC-0020",
-    "text": "My MacBook Pro M3 has a visibly bulging trackpad — I think the battery is swelling. The trackpad doesn't click and there's a small gap opening on the left chassis. Is this a safety hazard? Should I stop using it?",
+    "text": "My MacBook Pro M3 has a visibly bulging trackpad \u2014 I think the battery is swelling. The trackpad doesn't click and there's a small gap opening on the left chassis. Is this a safety hazard? Should I stop using it?",
     "intent": "hardware_issue",
     "priority": "P1",
     "resolved_by": "IT Ops",
@@ -169,7 +169,7 @@
   },
   {
     "id": "INC-0022",
-    "text": "Dropped my company iPhone 15 Pro and the screen has a large crack — upper right quadrant is unresponsive to touch. I use it for Okta Verify MFA so losing it is blocking me from logging into several systems right now.",
+    "text": "Dropped my company iPhone 15 Pro and the screen has a large crack \u2014 upper right quadrant is unresponsive to touch. I use it for Okta Verify MFA so losing it is blocking me from logging into several systems right now.",
     "intent": "hardware_issue",
     "priority": "P2",
     "resolved_by": "IT Ops",
@@ -177,7 +177,7 @@
   },
   {
     "id": "INC-0023",
-    "text": "My CalDigit TS4 dock stopped charging my MacBook 2 days ago. The dock is on — LEDs lit, USB devices work — but MacBook shows 'Power Adapter not supported' and battery is slowly draining. Tried SMC reset, no change.",
+    "text": "My CalDigit TS4 dock stopped charging my MacBook 2 days ago. The dock is on \u2014 LEDs lit, USB devices work \u2014 but MacBook shows 'Power Adapter not supported' and battery is slowly draining. Tried SMC reset, no change.",
     "intent": "hardware_issue",
     "priority": "P2",
     "resolved_by": "IT Ops",
@@ -185,7 +185,7 @@
   },
   {
     "id": "INC-0024",
-    "text": "I only have my MacBook screen right now. I do a lot of code review and side-by-side work — a second monitor would really help. What's the process? I've been here 4 months so I missed the new-hire equipment window.",
+    "text": "I only have my MacBook screen right now. I do a lot of code review and side-by-side work \u2014 a second monitor would really help. What's the process? I've been here 4 months so I missed the new-hire equipment window.",
     "intent": "hardware_issue",
     "priority": "P3",
     "resolved_by": "IT Ops",
@@ -193,11 +193,11 @@
   },
   {
     "id": "INC-0025",
-    "text": "Got a new iPhone 15 Pro and migrated apps from my old phone. Okta Verify migrated but TOTP codes are no longer accepted — always says 'incorrect code'. Old phone is gone, so I can't remove and re-add. Locked out of several Okta-gated tools.",
+    "text": "Got a new iPhone 15 Pro and migrated apps from my old phone. Okta Verify migrated but TOTP codes are no longer accepted \u2014 always says 'incorrect code'. Old phone is gone, so I can't remove and re-add. Locked out of several Okta-gated tools.",
     "intent": "software_issue",
     "priority": "P2",
     "resolved_by": "IT Ops",
-    "resolution_summary": "Okta MFA factor reset performed. Temporary access bypass issued for critical apps. Employee re-enrolled Okta Verify on new iPhone — full access restored within 1 hour."
+    "resolution_summary": "Okta MFA factor reset performed. Temporary access bypass issued for critical apps. Employee re-enrolled Okta Verify on new iPhone \u2014 full access restored within 1 hour."
   },
   {
     "id": "INC-0026",
@@ -209,7 +209,7 @@
   },
   {
     "id": "INC-0027",
-    "text": "Zoom crashes every time I try to share a browser window specifically — sharing the full desktop works fine. Started after the macOS 14.4 update. I have a customer demo in 2 hours and need this fixed urgently.",
+    "text": "Zoom crashes every time I try to share a browser window specifically \u2014 sharing the full desktop works fine. Started after the macOS 14.4 update. I have a customer demo in 2 hours and need this fixed urgently.",
     "intent": "software_issue",
     "priority": "P2",
     "resolved_by": "IT Ops",
@@ -225,7 +225,7 @@
   },
   {
     "id": "INC-0029",
-    "text": "My 1Password browser extension stopped auto-filling credentials in Chrome. The desktop app works fine and the extension shows as active, but clicking Fill on a login form does nothing. Tried rolling back Chrome — same issue.",
+    "text": "My 1Password browser extension stopped auto-filling credentials in Chrome. The desktop app works fine and the extension shows as active, but clicking Fill on a login form does nothing. Tried rolling back Chrome \u2014 same issue.",
     "intent": "software_issue",
     "priority": "P3",
     "resolved_by": "IT Ops",
@@ -233,15 +233,15 @@
   },
   {
     "id": "INC-0030",
-    "text": "Getting 'authentication failed' when pulling from our Nexus npm registry. My ~/.npmrc has our Nexus URL and a valid auth token. This started after I rotated my Nexus API token last week — maybe I set up the new token incorrectly?",
+    "text": "Getting 'authentication failed' when pulling from our Nexus npm registry. My ~/.npmrc has our Nexus URL and a valid auth token. This started after I rotated my Nexus API token last week \u2014 maybe I set up the new token incorrectly?",
     "intent": "software_issue",
     "priority": "P2",
     "resolved_by": "DevOps Team",
-    "resolution_summary": "Nexus 3.6x changed the npm auth token format — Base64 encoding is no longer required. Employee's ~/.npmrc was using the old format. Updated the config template and pushed the corrected ~/.npmrc via Jamf. Nexus pull confirmed working."
+    "resolution_summary": "Nexus 3.6x changed the npm auth token format \u2014 Base64 encoding is no longer required. Employee's ~/.npmrc was using the old format. Updated the config template and pushed the corrected ~/.npmrc via Jamf. Nexus pull confirmed working."
   },
   {
     "id": "INC-0031",
-    "text": "Docker Desktop is failing to start on my MacBook Pro M3 with 'cannot load kernel extension'. Running Docker Desktop 4.28. This is blocking all local development — I can't run any of our docker-compose environments.",
+    "text": "Docker Desktop is failing to start on my MacBook Pro M3 with 'cannot load kernel extension'. Running Docker Desktop 4.28. This is blocking all local development \u2014 I can't run any of our docker-compose environments.",
     "intent": "software_issue",
     "priority": "P2",
     "resolved_by": "IT Ops",
@@ -257,7 +257,7 @@
   },
   {
     "id": "INC-0033",
-    "text": "Hi, it's my first day — James Okafor, new SRE. My MacBook Pro M3 arrived but I'm stuck at the Jamf enrollment screen asking for an 'Enrollment Profile' that I don't have. My manager said IT would handle this setup.",
+    "text": "Hi, it's my first day \u2014 James Okafor, new SRE. My MacBook Pro M3 arrived but I'm stuck at the Jamf enrollment screen asking for an 'Enrollment Profile' that I don't have. My manager said IT would handle this setup.",
     "intent": "onboarding",
     "priority": "P2",
     "resolved_by": "IT Ops",
@@ -273,11 +273,11 @@
   },
   {
     "id": "INC-0035",
-    "text": "New hire — David Kim, Data Engineer. My HID badge works for the main lobby but not for the 4th floor engineering area or the server room. I need floor 4 access for my daily work.",
+    "text": "New hire \u2014 David Kim, Data Engineer. My HID badge works for the main lobby but not for the 4th floor engineering area or the server room. I need floor 4 access for my daily work.",
     "intent": "onboarding",
     "priority": "P2",
     "resolved_by": "IT Ops + Facilities",
-    "resolution_summary": "Badge access rules updated in the HID access control system. Floor 4 access granted immediately. Server room access requires CTO sign-off — request escalated. Employee notified of separate approval process."
+    "resolution_summary": "Badge access rules updated in the HID access control system. Floor 4 access granted immediately. Server room access requires CTO sign-off \u2014 request escalated. Employee notified of separate approval process."
   },
   {
     "id": "INC-0036",
@@ -305,7 +305,7 @@
   },
   {
     "id": "INC-0039",
-    "text": "New hire in the Singapore office — Wei Zhang, Backend Engineer. MacBook enrolled fine but I can't reach any internal services: Nexus, internal dashboards, GitHub Enterprise. The onboarding doc references a London VPN gateway.",
+    "text": "New hire in the Singapore office \u2014 Wei Zhang, Backend Engineer. MacBook enrolled fine but I can't reach any internal services: Nexus, internal dashboards, GitHub Enterprise. The onboarding doc references a London VPN gateway.",
     "intent": "onboarding",
     "priority": "P2",
     "resolved_by": "IT Ops",
@@ -313,7 +313,7 @@
   },
   {
     "id": "INC-0040",
-    "text": "Quick question — where do I find the official Veridian email signature template? I've been using plain text but everyone else has the branded HTML signature with the logo. Is there a self-service setup link?",
+    "text": "Quick question \u2014 where do I find the official Veridian email signature template? I've been using plain text but everyone else has the branded HTML signature with the logo. Is there a self-service setup link?",
     "intent": "onboarding",
     "priority": "P3",
     "resolved_by": "IT Ops",
@@ -329,7 +329,7 @@
   },
   {
     "id": "INC-0042",
-    "text": "SEV1 in progress — prod-payments is experiencing intermittent timeouts to our payment processor. About 15% of transactions failing with GATEWAY_TIMEOUT. Started 10 minutes ago. Customer support is already getting calls.",
+    "text": "SEV1 in progress \u2014 prod-payments is experiencing intermittent timeouts to our payment processor. About 15% of transactions failing with GATEWAY_TIMEOUT. Started 10 minutes ago. Customer support is already getting calls.",
     "intent": "payments_incident",
     "priority": "P1",
     "resolved_by": "SRE Team + Payments Engineering",
@@ -337,7 +337,7 @@
   },
   {
     "id": "INC-0043",
-    "text": "prod-payments pods are in CrashLoopBackOff across all 6 replicas in us-east-1. Logs show OOMKilled — container exceeded memory limit. This is a SEV1. Helix is active but looping you in directly.",
+    "text": "prod-payments pods are in CrashLoopBackOff across all 6 replicas in us-east-1. Logs show OOMKilled \u2014 container exceeded memory limit. This is a SEV1. Helix is active but looping you in directly.",
     "intent": "payments_incident",
     "priority": "P1",
     "resolved_by": "SRE Team",
@@ -345,7 +345,7 @@
   },
   {
     "id": "INC-0044",
-    "text": "Stripe webhook processing is backed up — events that normally process in under 1 second are taking 45-60 seconds. Payment confirmation delays are customer-visible. Not a complete outage but declaring SEV2.",
+    "text": "Stripe webhook processing is backed up \u2014 events that normally process in under 1 second are taking 45-60 seconds. Payment confirmation delays are customer-visible. Not a complete outage but declaring SEV2.",
     "intent": "payments_incident",
     "priority": "P1",
     "resolved_by": "Payments Engineering",
@@ -353,7 +353,7 @@
   },
   {
     "id": "INC-0045",
-    "text": "We're seeing duplicate charge events in prod-payments — customers being charged twice for the same transaction. Around 40 duplicates in the last 2 hours. Finance is aware. Declaring SEV1.",
+    "text": "We're seeing duplicate charge events in prod-payments \u2014 customers being charged twice for the same transaction. Around 40 duplicates in the last 2 hours. Finance is aware. Declaring SEV1.",
     "intent": "payments_incident",
     "priority": "P1",
     "resolved_by": "Payments Engineering + SRE",
@@ -369,15 +369,15 @@
   },
   {
     "id": "INC-0047",
-    "text": "I'd like to order a standing desk for my home office — the Flexispot E7 is $389 on Amazon. I know the home office equipment limit is $400. Is this within budget and what's the submission process?",
+    "text": "I'd like to order a standing desk for my home office \u2014 the Flexispot E7 is $389 on Amazon. I know the home office equipment limit is $400. Is this within budget and what's the submission process?",
     "intent": "expense_request",
     "priority": "P3",
     "resolved_by": "Finance Team",
-    "resolution_summary": "$389 is within the $400 home office equipment limit. Employee submitted via Expensify under 'Home Office — IT Equipment'. Approved by manager and Finance within 1 business day. Reimbursed on next payroll cycle."
+    "resolution_summary": "$389 is within the $400 home office equipment limit. Employee submitted via Expensify under 'Home Office \u2014 IT Equipment'. Approved by manager and Finance within 1 business day. Reimbursed on next payroll cycle."
   },
   {
     "id": "INC-0048",
-    "text": "I'm fully remote and my 24\" monitor is causing eye strain. I'd like to get a 32\" LG 4K (~$650). I think this might be over the standard home office limit — is there an approval process for amounts above $400?",
+    "text": "I'm fully remote and my 24\" monitor is causing eye strain. I'd like to get a 32\" LG 4K (~$650). I think this might be over the standard home office limit \u2014 is there an approval process for amounts above $400?",
     "intent": "expense_request",
     "priority": "P3",
     "resolved_by": "Finance Team",
@@ -405,7 +405,7 @@
     "intent": "expense_request",
     "priority": "P2",
     "resolved_by": "Finance Team + IT Ops",
-    "resolution_summary": "Software licenses over $100/month require Finance approval and IT procurement to maintain enterprise agreement terms. Submitted as a budget request. Fast-tracked given time sensitivity — all 3 licenses provisioned by Friday."
+    "resolution_summary": "Software licenses over $100/month require Finance approval and IT procurement to maintain enterprise agreement terms. Submitted as a budget request. Fast-tracked given time sensitivity \u2014 all 3 licenses provisioned by Friday."
   },
   {
     "id": "INC-0052",
@@ -441,11 +441,11 @@
   },
   {
     "id": "INC-0056",
-    "text": "The WiFi on the newly opened 6th floor is very slow — I'm getting 8 Mbps when the rest of the office gets 500+. There appear to be only 2 Meraki APs up there for a large open plan. Is IT aware of this?",
+    "text": "The WiFi on the newly opened 6th floor is very slow \u2014 I'm getting 8 Mbps when the rest of the office gets 500+. There appear to be only 2 Meraki APs up there for a large open plan. Is IT aware of this?",
     "intent": "general_question",
     "priority": "P3",
     "resolved_by": "IT Ops",
-    "resolution_summary": "Network team confirmed only 2 APs provisioned for 6th floor during initial fit-out — insufficient for full occupancy. 4 additional Meraki MR46 APs ordered. Installation scheduled for the following week. Wired ethernet recommended in the interim."
+    "resolution_summary": "Network team confirmed only 2 APs provisioned for 6th floor during initial fit-out \u2014 insufficient for full occupancy. 4 additional Meraki MR46 APs ordered. Installation scheduled for the following week. Wired ethernet recommended in the interim."
   },
   {
     "id": "INC-0057",
@@ -457,7 +457,7 @@
   },
   {
     "id": "INC-0058",
-    "text": "Where can I find the official company holiday calendar for next year? I need it for planning cross-timezone meetings — we have colleagues in London, Austin, and Singapore with different bank holidays.",
+    "text": "Where can I find the official company holiday calendar for next year? I need it for planning cross-timezone meetings \u2014 we have colleagues in London, Austin, and Singapore with different bank holidays.",
     "intent": "general_question",
     "priority": "P3",
     "resolved_by": "People Ops",
@@ -469,7 +469,7 @@
     "intent": "general_question",
     "priority": "P3",
     "resolved_by": "People Ops",
-    "resolution_summary": "Wellness benefit confirmed: £50/month gym subsidy for London-based employees. Submit monthly gym receipt via Expensify under 'Wellness Benefit'. PureGym qualifies. First claim requires signed wellness policy acknowledgment form (available on Confluence)."
+    "resolution_summary": "Wellness benefit confirmed: \u00a350/month gym subsidy for London-based employees. Submit monthly gym receipt via Expensify under 'Wellness Benefit'. PureGym qualifies. First claim requires signed wellness policy acknowledgment form (available on Confluence)."
   },
   {
     "id": "INC-0060",
@@ -477,6 +477,378 @@
     "intent": "general_question",
     "priority": "P3",
     "resolved_by": "IT Ops",
-    "resolution_summary": "Advised to use the ':palm_tree: OOO' Slack status with return date. For Helix: on-call pauses must be created manually as a Helix override — it does not auto-sync with Google Calendar or Slack. Wiki at confluence.veridian.io/it/ooo-guide sent."
+    "resolution_summary": "Advised to use the ':palm_tree: OOO' Slack status with return date. For Helix: on-call pauses must be created manually as a Helix override \u2014 it does not auto-sync with Google Calendar or Slack. Wiki at confluence.veridian.io/it/ooo-guide sent."
+  },
+  {
+    "id": "INC-0061",
+    "intent": "access_request",
+    "priority": "P2",
+    "text": "Maria transferred from London Analytics to the SF Growth team last month. Her Prism access still reflects her old analyst role \u2014 she now needs write access to the growth_experiments schema. Growth team lead is Priya Sharma."
+  },
+  {
+    "id": "INC-0062",
+    "intent": "access_request",
+    "priority": "P3",
+    "text": "We need to decommission the prism-export-svc service account \u2014 it was created for a one-off data migration that wrapped up last Friday. Please rotate its credentials and revoke Prism write access. Read-only access can stay for now for audit purposes."
+  },
+  {
+    "id": "INC-0063",
+    "intent": "access_request",
+    "priority": "P2",
+    "text": "I need to be promoted to maintainer on the veridian-internal GitHub org so I can manage branch protection rules on the infra-core repo. Currently I have write but not maintainer. GitHub handle is @dmcallister-eng."
+  },
+  {
+    "id": "INC-0064",
+    "intent": "access_request",
+    "priority": "P3",
+    "text": "Can I be added to the #finance-eng-private Slack channel? I'm leading the Q4 payments reconciliation project and that channel has context I need. Manager Alex Torres has approved this."
+  },
+  {
+    "id": "INC-0065",
+    "intent": "access_request",
+    "priority": "P2",
+    "text": "New contractor starting Monday: Yuki Tanaka (yuki.tanaka@freelance.io), working on platform-services. Needs read access to the platform-services and internal-libs GitHub repos. No write access. Contract runs until end of quarter."
+  },
+  {
+    "id": "INC-0066",
+    "intent": "access_request",
+    "priority": "P1",
+    "text": "Please revoke all access immediately for Elena Marchetti (elena.marchetti@veridian.io) \u2014 she resigned effective today. GitHub, Okta, Slack, Prism, AWS, Nexus, everything. Legal hold on the mailbox \u2014 do NOT delete it, just disable login."
+  },
+  {
+    "id": "INC-0067",
+    "intent": "access_request",
+    "priority": "P3",
+    "text": "After a team restructure I'm now covering infra-as-code work and need read access to our Terraform state in the prod AWS account. I can see the staging bucket but not prod. No write access needed \u2014 just read for auditing."
+  },
+  {
+    "id": "INC-0068",
+    "intent": "access_request",
+    "priority": "P2",
+    "text": "The analytics-reporting service account needs access to the customer_events table in Prism. It currently only reaches the sandbox schema and the weekly reporting job is failing as a result. Ticket from the Data Eng team."
+  },
+  {
+    "id": "INC-0069",
+    "intent": "security_incident",
+    "priority": "P1",
+    "text": "CrowdStrike flagged a ransomware-like pattern on my machine \u2014 multiple files in my home directory have been renamed with a .locked extension. I'm on company WiFi. I've physically disconnected from the network. What should I do next?"
+  },
+  {
+    "id": "INC-0070",
+    "intent": "security_incident",
+    "priority": "P2",
+    "text": "Found a USB drive in the office kitchen labelled 'Q4 Payroll \u2014 CONFIDENTIAL'. No idea who left it. I haven't plugged it in. I'm worried someone else might. Who should I hand this to right now?"
+  },
+  {
+    "id": "INC-0071",
+    "intent": "security_incident",
+    "priority": "P2",
+    "text": "Received a calendar invite from an external Gmail address claiming to be our CEO, for a 'confidential board meeting' with a link to zoom-meetings.net instead of zoom.us. Looks like a CEO impersonation phishing attempt. Flagging before anyone accepts."
+  },
+  {
+    "id": "INC-0072",
+    "intent": "security_incident",
+    "priority": "P2",
+    "text": "Got an email from 'support@veridian-helpdesk.net' asking me to verify my Okta credentials via a linked form. The domain is wrong \u2014 we're veridian.io. I didn't click anything. Flagging as phishing."
+  },
+  {
+    "id": "INC-0073",
+    "intent": "security_incident",
+    "priority": "P1",
+    "text": "Our prod-payments Stripe live API key (restricted, charge permissions) was hardcoded in a config file I pushed to a public fork about 30 minutes ago. I've reverted the commit and made the fork private, but the key was exposed. Needs immediate rotation."
+  },
+  {
+    "id": "INC-0074",
+    "intent": "security_incident",
+    "priority": "P2",
+    "text": "Received an urgent Slack DM from someone claiming to be our CFO asking me to buy $1,800 in Google Play gift cards for a client gift and send the codes. The Slack profile looks correct but the ask feels like a BEC scam. Haven't responded."
+  },
+  {
+    "id": "INC-0075",
+    "intent": "security_incident",
+    "priority": "P2",
+    "text": "CrowdStrike alert: 'Cryptocurrency miner detected \u2014 XMRig process running'. This appeared 20 minutes after I ran npm install on an open-source project. I've killed the process. My machine is still online \u2014 should I isolate it?"
+  },
+  {
+    "id": "INC-0076",
+    "intent": "security_incident",
+    "priority": "P2",
+    "text": "A terminated contractor (handle: contractor-bwong) still appears to have active read access to two private repos in our GitHub org \u2014 I can see their commits from 3 days ago. Either offboarding was incomplete or someone reactivated the account."
+  },
+  {
+    "id": "INC-0077",
+    "intent": "hardware_issue",
+    "priority": "P3",
+    "text": "The spacebar on my MacBook requires noticeably more force than usual and occasionally doesn't register. All other keys feel normal. Happy to bring it in if you have a hardware inspection process."
+  },
+  {
+    "id": "INC-0078",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "text": "My MacBook Pro M3 fans are running at full speed constantly even when the machine is idle \u2014 Activity Monitor shows nothing unusual. Bottom case is very hot to the touch. Started after the macOS 14.4.1 update yesterday."
+  },
+  {
+    "id": "INC-0079",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "text": "My Jabra Evolve2 75 headset stopped working in Zoom and Google Meet. It shows up in System Settings > Sound but no audio passes in either direction. Jabra app says firmware is current. This has been broken for 2 days and I'm on calls constantly."
+  },
+  {
+    "id": "INC-0080",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "text": "Company iPhone 15 Pro battery drains from 100% to under 20% in about 4 hours with light use \u2014 just Slack, email, and a couple of Zoom calls. Battery Health shows 79%. I rely on Okta Verify for MFA so this is affecting my ability to log in."
+  },
+  {
+    "id": "INC-0081",
+    "intent": "hardware_issue",
+    "priority": "P3",
+    "text": "The height-adjustment motor on my IT-issued Flexispot standing desk has stopped working \u2014 the desk is stuck at a fixed height. The controller panel lights up but pressing up or down does nothing. Desk was purchased by IT about a year ago."
+  },
+  {
+    "id": "INC-0082",
+    "intent": "hardware_issue",
+    "priority": "P3",
+    "text": "My MX Master 3 scroll wheel has become erratic \u2014 horizontal scroll fires multiple events per click randomly. Tried a different USB receiver, same result. Driver is up to date. Minor annoyance but becoming distracting on long coding sessions."
+  },
+  {
+    "id": "INC-0083",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "text": "My MacBook Pro M3 fails to wake from sleep roughly half the time \u2014 screen stays black and I have to force-reboot. External display connected via CalDigit dock. Started happening this week, no software changes I'm aware of."
+  },
+  {
+    "id": "INC-0084",
+    "intent": "hardware_issue",
+    "priority": "P2",
+    "text": "A vertical pink line appeared on my MacBook's built-in display this morning from top to bottom, about a third from the left. No physical impact occurred. Everything else \u2014 performance, peripherals \u2014 is normal. Is this a display panel failure?"
+  },
+  {
+    "id": "INC-0085",
+    "intent": "software_issue",
+    "priority": "P2",
+    "text": "Python package builds are failing \u2014 pip can't authenticate to the Nexus PyPI proxy, returning HTTP 401 despite a valid NEXUS_TOKEN env var. Started for the whole team after someone updated the Nexus URL in pyproject.toml. Possibly a URL format change."
+  },
+  {
+    "id": "INC-0086",
+    "intent": "software_issue",
+    "priority": "P3",
+    "text": "After upgrading to Chrome 123, our internal Confluence wiki loads but the rich text editor is broken \u2014 toolbar buttons don't work and formatting isn't applied. Works fine in Firefox and Safari. Looks like a Chromium-specific regression."
+  },
+  {
+    "id": "INC-0087",
+    "intent": "software_issue",
+    "priority": "P2",
+    "text": "GlobalProtect VPN is failing to connect with 'Gateway certificate could not be verified'. Started this morning and affects at least 3 people on my team. Reinstalling GlobalProtect didn't help. We're all blocked from internal services."
+  },
+  {
+    "id": "INC-0088",
+    "intent": "software_issue",
+    "priority": "P2",
+    "text": "GitHub Actions CI is failing across all repos with 'Permission denied to GITHUB_TOKEN' on the checkout step. Started after the GitHub org admin changed the default repo permissions yesterday. Every PR is now blocked."
+  },
+  {
+    "id": "INC-0089",
+    "intent": "software_issue",
+    "priority": "P3",
+    "text": "Google Calendar stopped syncing with Outlook since I moved to my new MacBook. Both accounts show connected in system settings but Outlook is 3 days behind. I'm missing meeting updates and can't rely on Outlook for scheduling."
+  },
+  {
+    "id": "INC-0090",
+    "intent": "software_issue",
+    "priority": "P2",
+    "text": "Terraform fails on every plan and apply with 'no valid credential sources found for AWS Provider'. My AWS SSO works fine in the CLI (aws s3 ls succeeds). Started yesterday, Terraform version 1.7.4, no config changes on my end."
+  },
+  {
+    "id": "INC-0091",
+    "intent": "software_issue",
+    "priority": "P3",
+    "text": "Chrome shows a persistent SSL error on our internal Grafana dashboard (grafana.internal.veridian.io) on my new MacBook. The cert uses our internal CA and works fine on my old machine. Probably a missing root cert \u2014 where should I install it?"
+  },
+  {
+    "id": "INC-0092",
+    "intent": "software_issue",
+    "priority": "P2",
+    "text": "DataGrip stopped connecting to our Prism Redshift cluster this morning with 'Connection refused'. The same credentials and connection profile work in DBeaver. Multiple engineers are reporting the same DataGrip-specific issue."
+  },
+  {
+    "id": "INC-0093",
+    "intent": "onboarding",
+    "priority": "P2",
+    "text": "Hi, I'm Tomas Rivera, new Backend Engineer in the Austin office starting today. MacBook arrived and Jamf enrollment went fine, but I haven't received credentials for GitHub Enterprise, Jira, or internal Confluence. Manager is Rachel Greene."
+  },
+  {
+    "id": "INC-0094",
+    "intent": "onboarding",
+    "priority": "P2",
+    "text": "I'm Nadia Kowalski, QA Engineer in my second week. I still don't have access to the staging environment \u2014 I need Kubernetes namespace access and credentials for the test Postgres DB mentioned in the onboarding doc. Completely blocked on QA work."
+  },
+  {
+    "id": "INC-0095",
+    "intent": "onboarding",
+    "priority": "P2",
+    "text": "New hire \u2014 Kwame Asante, Data Scientist, London office. Email and Slack are set up but I can't log into Prism at all \u2014 getting 'account not found'. Onboarding checklist says Prism access should be provisioned within the first 3 days."
+  },
+  {
+    "id": "INC-0096",
+    "intent": "onboarding",
+    "priority": "P2",
+    "text": "I'm Lin Feng, new Product Designer. My Figma invite landed in a personal workspace, not the Veridian org. I also can't access the shared component library. Can IT reprovision me under the correct org account?"
+  },
+  {
+    "id": "INC-0097",
+    "intent": "onboarding",
+    "priority": "P2",
+    "text": "New hire \u2014 Priya Anand, SRE. I've been added to Helix but can't access the admin panel to set my escalation preferences and on-call hours. I'm scheduled to go on-call next Thursday and need to configure my notification channels before then."
+  },
+  {
+    "id": "INC-0098",
+    "intent": "onboarding",
+    "priority": "P2",
+    "text": "I'm Thomas Hargreaves, new Finance Manager, London office, started this week. I need access to Netsuite and the expense approval workflow. My predecessor's access was tied to their personal account and I haven't been provisioned yet."
+  },
+  {
+    "id": "INC-0099",
+    "intent": "onboarding",
+    "priority": "P3",
+    "text": "Hi, I'm Carlos Mendez, new Sales Engineer. The welcome email mentioned an IT setup session but I've received no details. Should I book it myself or will someone reach out? Also \u2014 is there a self-service onboarding portal I should know about?"
+  },
+  {
+    "id": "INC-0100",
+    "intent": "onboarding",
+    "priority": "P3",
+    "text": "I'm Mei Suzuki, new Content Strategist. I notice everyone has a Veridian-branded Zoom background but I don't have one. Is there a download link or does IT push it via MDM? Also can't find the company style guide \u2014 is that in Confluence?"
+  },
+  {
+    "id": "INC-0101",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "text": "prod-payments DB connection pool is exhausted \u2014 all 200 connections are held and new payment requests are queuing. Response times are 8-12 seconds. Processing is severely degraded, not fully down. Declaring SEV2 for now, may escalate."
+  },
+  {
+    "id": "INC-0102",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "text": "Our payment processor deprecated the v2 API endpoints we use for card tokenization, effective today. Tokenization is failing for ~30% of new cards. Existing tokens still work. Need an emergency hotfix to move to the v3 endpoint."
+  },
+  {
+    "id": "INC-0103",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "text": "Stripe is rate-limiting prod-payments \u2014 HTTP 429s on /v1/charges. Payment volume spiked 3x due to a flash sale and we're hitting our tier limit. Transactions are queuing; some are timing out and customers are noticing."
+  },
+  {
+    "id": "INC-0104",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "text": "A prod-payments deployment 20 minutes ago caused a 40% error rate on checkout. Rollback is in progress. Formally declaring SEV1 and looping in Helix. Likely a bad config variable \u2014 investigating in parallel with the rollback."
+  },
+  {
+    "id": "INC-0105",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "text": "Automated alert: prod-payments memory usage is climbing steadily \u2014 60% \u2192 80% \u2192 92% over 2 hours with no traffic spike. Looks like a memory leak in the new invoice worker. No customer impact yet, but at this rate we'll hit OOMKilled in ~30 minutes."
+  },
+  {
+    "id": "INC-0106",
+    "intent": "payments_incident",
+    "priority": "P1",
+    "text": "Spike in chargebacks from a specific card BIN range \u2014 127 in the past hour vs. our baseline of 3/hour. Looks like a carding attack that got through fraud detection. Flagging for investigation and possible suspension of that BIN range."
+  },
+  {
+    "id": "INC-0107",
+    "intent": "expense_request",
+    "priority": "P3",
+    "text": "I'd like to expense a Udemy course on advanced Kubernetes ($49) and the book 'Designing Data-Intensive Applications' ($45) \u2014 $94 total. Is there a L&D budget category for this, or does it go through manager approval?"
+  },
+  {
+    "id": "INC-0108",
+    "intent": "expense_request",
+    "priority": "P3",
+    "text": "I need to travel to the SF office for a cross-functional planning week next month \u2014 roughly $280 round trip flight from Austin and 4 nights hotel around $200/night. What's the travel booking process and is there a preferred hotel list?"
+  },
+  {
+    "id": "INC-0109",
+    "intent": "expense_request",
+    "priority": "P3",
+    "text": "Our distributed team of 5 wants to do a remote team dinner \u2014 order delivery simultaneously while on a video call. About $40/person, $200 total. Is there a team social budget and what's the process to request it?"
+  },
+  {
+    "id": "INC-0110",
+    "intent": "expense_request",
+    "priority": "P2",
+    "text": "I need a Figma Professional license ($15/month) \u2014 the free tier limits me to 3 active projects and I currently have 6. Should I submit this through IT or Finance? Need it within the week to avoid blocking delivery."
+  },
+  {
+    "id": "INC-0111",
+    "intent": "expense_request",
+    "priority": "P3",
+    "text": "I'm sitting the AWS Solutions Architect exam \u2014 the voucher is $300 and there's a recommended prep course at $75. Total $375. Does the L&D budget cover professional certifications and who approves it?"
+  },
+  {
+    "id": "INC-0112",
+    "intent": "expense_request",
+    "priority": "P3",
+    "text": "My home office chair is causing lower back pain. I'd like a Secretlab TITAN ergonomic chair at $499 \u2014 just over the $400 home office limit. Is there an exception process for ergonomic/medical needs? I have a GP note if required."
+  },
+  {
+    "id": "INC-0113",
+    "intent": "expense_request",
+    "priority": "P3",
+    "text": "We have a vendor dinner in New York next Tuesday \u2014 4 people, ~$90/person including drinks, so ~$360 total. Who approves client entertainment expenses and should this go through my manager first or directly to Finance?"
+  },
+  {
+    "id": "INC-0114",
+    "intent": "expense_request",
+    "priority": "P2",
+    "text": "I need to renew 4 Miro seats at $16/month each ($768/year). Current licenses expired today and we use Miro daily for sprint planning and retros. Does this go through IT or Finance? Somewhat urgent."
+  },
+  {
+    "id": "INC-0115",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "What are the SLA response times for IT support tickets by priority? I submitted a P2 ticket 3 days ago with no response and want to know if that's within range or if I should escalate."
+  },
+  {
+    "id": "INC-0116",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "How does parental leave work at Veridian? I'm planning ahead and want to understand the duration, pay, and whether it applies equally to primary and secondary caregivers."
+  },
+  {
+    "id": "INC-0117",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "How do I book a conference room in the London office? I need a room for 8 people for a full-day workshop next month. The calendar invite room search returns no results for me."
+  },
+  {
+    "id": "INC-0118",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "What's the process for requesting a software license when I'm not sure which tool I need yet? I'm evaluating a few data visualization options and want to understand how procurement works before committing to one."
+  },
+  {
+    "id": "INC-0119",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "Does Veridian have an employee referral bonus program? A former colleague would be a strong fit for the open Staff Engineer role and I want to understand the process and any financial incentive before reaching out to them."
+  },
+  {
+    "id": "INC-0120",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "Where can I find the Veridian IT security policy document? I want to review it before connecting a personal NAS to my home network, which I also use for work VPN. Checking I'm compliant with data handling requirements."
+  },
+  {
+    "id": "INC-0121",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "I'm relocating from London to the Austin office in 3 months. What relocation support does Veridian provide? Is there a stipend, and does HR assist with any work authorization paperwork?"
+  },
+  {
+    "id": "INC-0122",
+    "intent": "general_question",
+    "priority": "P3",
+    "text": "Does Helix automatically pause my on-call rotation during approved PTO? I have a two-week leave coming up and want to make sure the rotation re-assigns correctly and I'm not silently paged while I'm off."
   }
 ]

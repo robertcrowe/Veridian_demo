@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "SYN-552C7D",
+    "text": "Hey, can I get access to the Nexus repo for the prod-payments service? Need to push a hotfix ASAP.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5CD942",
+    "text": "I need to be added to the Prism analytics group\u2014my team is working on the Q3 reporting and I can't pull the data without it.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BA491D",
+    "text": "Can someone grant me admin access to the GitHub org? I'm taking over the auth service and need to manage repos.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B25529",
+    "text": "Need access to the AWS IAM role for the staging environment\u2014my new project requires S3 bucket permissions.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A87899",
+    "text": "Could you add me to the Okta group for Helix? I'm on call this week and need to see alerts.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-EAAB53",
+    "text": "Please remove my access to the old Nexus repo\u2014we migrated to the new one and I don't need it anymore.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2120F9",
+    "text": "I'm joining the data team\u2014can you provision me access to Prism and the related AWS Redshift cluster?",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4D7E7A",
+    "text": "My internship is ending next week\u2014please revoke all my access to Nexus, GitHub, and AWS.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-ACCC69",
+    "text": "Need access to the prod-payments service in AWS\u2014my team is debugging a critical issue.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-DEE1D1",
+    "text": "Can you add me to the Okta group for the customer portal? I'm handling support escalations now.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CD176E",
+    "text": "I lost access to Prism after the password reset\u2014can you re-enable it?",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BDEC28",
+    "text": "Need to be added to the GitHub org as a maintainer for the billing service repo.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6DA476",
+    "text": "Please grant me access to the AWS IAM role for the new analytics pipeline.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-33146D",
+    "text": "Can you remove my access to Helix? I'm no longer on the on-call rotation.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-06E837",
+    "text": "I need access to the Nexus repo for the internal tools team\u2014just got transferred.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-10C4B9",
+    "text": "Could you add me to the Okta group for the VPN? I'm working remotely this week.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-53ED77",
+    "text": "Need to be removed from the old GitHub org\u2014my team merged into a new one.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1D2407",
+    "text": "Can I get access to the AWS IAM role for the staging environment? Need to test a deployment.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BDC89F",
+    "text": "Please revoke my access to Prism\u2014I'm switching teams and no longer need it.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A92807",
+    "text": "I need to be added to the Okta group for the customer support portal.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2937A7",
+    "text": "Can someone grant me access to the Nexus repo for the new API service?",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8DDB8F",
+    "text": "Need to be removed from the AWS IAM role for the old project\u2014it's been deprecated.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-15C928",
+    "text": "I'm setting up a new service\u2014can you provision me access to the GitHub org and Nexus?",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1C7123",
+    "text": "Please add me to the Okta group for the internal wiki\u2014I'm documenting a new process.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-438375",
+    "text": "Need access to the prod-payments service in AWS\u2014urgent fix required.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-96EF94",
+    "text": "Can you remove my access to Helix? I'm no longer on the on-call schedule.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0B966D",
+    "text": "I need to be added to the Prism analytics group\u2014my team is working on a new dashboard.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3E4235",
+    "text": "Please revoke my access to the old Nexus repo\u2014it's no longer in use.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-009A7A",
+    "text": "Need to be added to the GitHub org as a contributor for the new project.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6A01BA",
+    "text": "Can someone grant me access to the AWS IAM role for the data pipeline?",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-066CF5",
+    "text": "I'm leaving the company\u2014please revoke all my access to Nexus, GitHub, and AWS.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E17D87",
+    "text": "Need access to the Okta group for the VPN\u2014I'm working from a new location.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BC6EC8",
+    "text": "Can you add me to the Prism group for the finance team? I'm running reports.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9BA9A4",
+    "text": "Please remove my access to the old GitHub org\u2014my team restructured.",
+    "intent": "access_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F26E70",
+    "text": "I just got a weird email from \"Veridian Support\" asking me to reset my Nexus credentials\u2014it looks off, the logo's wrong and the link goes to a sketchy domain. Should I forward it somewhere?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8ACF60",
+    "text": "My laptop was stolen from my car last night and it had full disk encryption but I'm still freaking out\u2014what's the next step for reporting this?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D793A2",
+    "text": "I logged into Helix from my home IP yesterday and just got an alert about a login from Singapore 20 minutes ago. I'm not traveling\u2014someone else is in my account.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-29D296",
+    "text": "Someone just called me claiming to be from IT security and asked for my Prism password\u2014red flags everywhere, I hung up but wanted to flag it.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CE3AC1",
+    "text": "I clicked a link in an email that looked like it was from our vendor and now my screen is locked with a ransom note demanding 0.5 BTC. What do I do?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-89EFF7",
+    "text": "Noticed a weird process called \"xmrig\" running on my workstation\u2014CPU is maxed out and I didn't install anything mining-related.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-DC5598",
+    "text": "My badge was used to enter the data center at 3 AM last night and I was definitely asleep in bed\u2014how do I check who's messing with my access?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E0FD50",
+    "text": "I forwarded a suspicious email to phishing@veridian but just realized it had a PDF attachment that might've auto-downloaded\u2014should I disconnect from the network?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C4F5DC",
+    "text": "Got a Slack DM from someone I don't know asking for help with \u201curgent prod-payments access\u201d\u2014they're not in my org chart and the tone is pushy.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A64D98",
+    "text": "I left my phone in a rideshare last night and it had the Authenticator app on it\u2014how do I revoke MFA before someone uses it?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-82F1E2",
+    "text": "Noticed an unfamiliar GitHub token in my Nexus settings with admin permissions\u2014no idea how it got there or who created it.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-FFA8EC",
+    "text": "My screen flashed a weird popup for a split second saying \u201cYour files are encrypted\u201d but it disappeared\u2014should I power off my machine?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2F79AC",
+    "text": "I just got an alert from our CASB that someone downloaded 50GB of Prism data to an external IP in Russia\u2014is that normal?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9002EB",
+    "text": "Someone tried to reset my Okta password three times in the last hour and I didn't initiate any of them.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-154233",
+    "text": "I think I fell for a phishing test but the email looked *exactly* like the real IT security bulletin\u2014where do I report this?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E547DC",
+    "text": "My desk neighbor said they got a call from \u201cIT\u201d asking for their VPN credentials\u2014we both think it's a scam but wanted to double-check.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1CD6B3",
+    "text": "I found a USB drive in the parking lot labeled \u201cQ4 Bonuses\u201d and plugged it in\u2014now my desktop has a weird EXE running in the background.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-276D16",
+    "text": "Noticed an unauthorized SSH key added to my prod-payments server\u2014it's not mine and I'm the only one with access.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3061D6",
+    "text": "I got a text message saying \u201cYour Veridian account is locked, click here to unlock\u201d\u2014the link goes to a fake Okta page.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7C9699",
+    "text": "Someone just tried to tailgate me into the office with a fake badge\u2014security saw it but I wanted to log it here too.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D4C17E",
+    "text": "I accidentally sent my API key to a Slack channel instead of DM'ing it\u2014how do I rotate it ASAP?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-62CFBA",
+    "text": "My laptop started running super slow and Task Manager shows a process called \u201cransomware.exe\u201d\u2014I killed it but I'm worried.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0921A9",
+    "text": "I got an email from \u201cIT Support\u201d with a link to \u201cupdate your Helix credentials\u201d but the domain is veridian-security[.]net.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B72DD9",
+    "text": "Noticed a new admin user in our Nexus repo that no one on the team recognizes\u2014could this be a backdoor?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0C9435",
+    "text": "I clicked a Google Doc link from a coworker but it took me to a fake login page\u2014now I'm locked out of my account.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-814217",
+    "text": "My screen went black for a second and then showed a message saying \u201cPay 0.1 BTC to unlock your files\u201d\u2014what's the protocol?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0C1352",
+    "text": "I just got a call from someone saying they're from the IRS and need my Prism credentials to \u201cverify compliance\u201d\u2014obviously fake but wanted to log it.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AEED3D",
+    "text": "Found a weird cron job on my machine that's sending data to an external IP every 5 minutes\u2014I didn't set it up.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2650E9",
+    "text": "I left my laptop unlocked at my desk while I grabbed coffee and when I came back, someone had opened my terminal\u2014no idea what they did.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4537AD",
+    "text": "Got an alert that my VPN session was active in two locations at once\u2014one in SF and one in Ukraine.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C0E74A",
+    "text": "I forwarded a suspicious email to the security team but just realized it might've had a malicious macro\u2014should I wipe my machine?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C3B388",
+    "text": "Noticed an unauthorized Slack integration in my workspace with access to all channels\u2014no idea how it got there.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4D6D54",
+    "text": "I got a phishing email that looked like it was from our CFO asking for a \u201cconfidential wire transfer\u201d\u2014the domain was off by one letter.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1D9F43",
+    "text": "My laptop started making weird noises and the fan is running nonstop\u2014Task Manager shows a process called \u201cminer.exe\u201d.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7F9563",
+    "text": "I just got a notification that my GitHub 2FA was disabled but I didn't do it\u2014someone's trying to hijack my account.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7ABAA7",
+    "text": "Found a keylogger process running on my machine after I downloaded a \u201cfree\u201d PDF editor\u2014how do I remove it?",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5E6D39",
+    "text": "I got a call from someone claiming to be from IT and they asked me to install AnyDesk\u2014sounded fishy so I hung up.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-71B103",
+    "text": "Noticed an unfamiliar AWS IAM role with full admin permissions in our prod-payments account\u2014no one on the team created it.",
+    "intent": "security_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C0B84A",
+    "text": "My MacBook Pro won't charge at all\u2014tried two different cables and outlets, the light on the MagSafe doesn't even turn on.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C1219A",
+    "text": "The left side of my Dell monitor flickers every few seconds, especially when I'm in Prism pulling the monthly revenue report.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1A6EFE",
+    "text": "My Logitech MX Master mouse keeps disconnecting randomly, even after a fresh battery swap\u2014super annoying during Nexus deployments.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3EDA62",
+    "text": "The USB-C port on my CalDigit dock stopped working overnight, so now I can't connect to my second monitor or Ethernet.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-938655",
+    "text": "My MacBook's battery drains to 0% in under an hour, even when it's just sitting idle with Helix open.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D78012",
+    "text": "The spacebar on my Magic Keyboard sticks every time I press it\u2014makes typing Jira tickets for prod-payments a nightmare.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2E8291",
+    "text": "My Jabra headset mic cuts out constantly during Zoom calls with clients, even though the audio sounds fine.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-DF36D0",
+    "text": "The hinge on my MacBook Air is loose and the screen wobbles whenever I adjust it\u2014feels like it's about to snap.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B29A08",
+    "text": "My Dell monitor won't wake up from sleep mode unless I unplug it and plug it back in every time.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-02A2C9",
+    "text": "The trackpad on my MacBook Pro is completely unresponsive\u2014can't even move the cursor, let alone click.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-65EA08",
+    "text": "My Anker charging cable frayed near the USB-C end and now it only works if I hold it at a weird angle.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-923869",
+    "text": "The webcam on my MacBook keeps freezing mid-call, especially when sharing my screen in Prism dashboards.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B113A0",
+    "text": "My Logitech keyboard's \"Enter\" key stopped working, so I've been using the on-screen keyboard for Slack messages.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-987CC7",
+    "text": "The power button on my MacBook Pro is stuck and won't depress\u2014had to use the keyboard shortcut to shut it down.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9D908A",
+    "text": "My monitor's display is stuck in portrait mode and the settings won't let me rotate it back to landscape.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-082B42",
+    "text": "The right-click button on my mouse stopped working, so I can't access context menus in Nexus.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-283F06",
+    "text": "My MacBook's speakers suddenly stopped producing sound, even though the volume is maxed out.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D44335",
+    "text": "The USB-A port on my dock is bent and won't hold any cables\u2014had to jerry-rig it with tape to keep using my keyboard.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-07DFCA",
+    "text": "My headset's left earbud stopped working entirely, so I'm only getting audio in one ear during calls.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-EC2250",
+    "text": "The charging port on my MacBook is loose and the cable falls out if I bump it even slightly.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9425F7",
+    "text": "My monitor's colors look washed out, like everything has a yellow tint\u2014tried adjusting settings but no luck.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-98E814",
+    "text": "The \"Command\" key on my keyboard is stuck and keeps triggering random shortcuts in Helix.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-78B511",
+    "text": "My mouse scroll wheel is super stiff and barely moves\u2014makes scrolling through long Nexus logs painful.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C03149",
+    "text": "The battery in my MacBook Pro swells and the trackpad is lifted slightly\u2014looks like it's about to pop.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8D270F",
+    "text": "My dock's Ethernet port stopped working, so I'm stuck on Wi-Fi for prod-payments deployments.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-68674A",
+    "text": "The \"Shift\" key on my keyboard only works if I press it really hard\u2014typing in all caps is impossible.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F424EC",
+    "text": "My monitor's power button is stuck and the screen won't turn off unless I unplug it.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E13E15",
+    "text": "The charging cable for my MacBook only works if I hold it at a 45-degree angle\u2014super unreliable.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-76E6CD",
+    "text": "My webcam's video feed is upside down and the settings won't let me flip it back.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-06497E",
+    "text": "The \"Backspace\" key on my keyboard fell off and I can't find it\u2014had to use the delete key instead.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-FABAAD",
+    "text": "My headset's microphone picks up a loud static noise, even when I'm not talking.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BBC079",
+    "text": "The left side of my MacBook's screen has a dark vertical line that won't go away.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-52234D",
+    "text": "My dock's HDMI port stopped working, so I can't connect to my second monitor for Prism queries.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C77D58",
+    "text": "The \"Tab\" key on my keyboard is missing\u2014must've fallen off during my last Nexus update.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-40A43E",
+    "text": "My mouse's left-click button is double-clicking randomly, making it impossible to drag files.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A9E87A",
+    "text": "The power adapter for my MacBook gets burning hot after just a few minutes of charging.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-420A56",
+    "text": "My monitor's brightness keeps resetting to 100% every time I wake it from sleep.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-095BC5",
+    "text": "The \"Option\" key on my keyboard is stuck and keeps triggering accent menus in Slack.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-017D29",
+    "text": "My headset's volume controls stopped working, so I can't adjust audio during calls.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F3F3FA",
+    "text": "The charging port on my MacBook is completely dead\u2014tried multiple cables and outlets, no luck.",
+    "intent": "hardware_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-33CB4F",
+    "text": "My Okta Verify app keeps asking for a new code every 30 seconds and won't let me into Prism\u2014this is blocking my month-end reporting.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-EC8F89",
+    "text": "Slack won't launch after the latest update; I tried rebooting but just get a spinning wheel on the login screen.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-598F23",
+    "text": "I need the latest JetBrains Rider installed on my MacBook before the prod-payments hotfix goes out tonight.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E160E1",
+    "text": "Docker Desktop keeps crashing when I try to spin up the local payments stack\u2014says \u201cpermission denied\u201d on the socket.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BC5168",
+    "text": "VS Code suddenly won't recognize any Python extensions; I already reinstalled it once and the issue persists.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-161BF0",
+    "text": "Nexus auth is timing out every time I try to pull the latest Helix artifacts\u2014can't deploy my on-call dashboard.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-904441",
+    "text": "Zoom keeps kicking me out of meetings with \u201cinvalid meeting ID\u201d even though the link works for everyone else.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2D667A",
+    "text": "I accidentally let my Okta Verify push expire and now I'm locked out of everything\u2014need help ASAP.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1EC09F",
+    "text": "The Slack desktop app is using 100% CPU and my laptop fan sounds like a jet engine\u2014any fixes?",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A9F5F8",
+    "text": "I need Docker version 24.0.7 installed so I can test the new payments container locally.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6B3F1C",
+    "text": "VS Code keeps freezing when I open the prod-payments repo\u2014happens every time after about 5 minutes.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-14EC9B",
+    "text": "Nexus is rejecting my credentials even though I just reset my password\u2014can someone verify my account?",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-062266",
+    "text": "Helix won't let me acknowledge alerts; the button just spins and nothing happens.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-256C07",
+    "text": "I can't join any Zoom meetings\u2014getting \u201cYour account is not enabled for this feature\u201d but I've used it before.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-045BA2",
+    "text": "Okta Verify keeps sending me push notifications even when I'm not trying to log in\u2014how do I make it stop?",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-ED9BF9",
+    "text": "Slack won't sync my messages; I see old threads from last week but nothing new is coming in.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3D8606",
+    "text": "JetBrains IntelliJ won't activate my license\u2014says \u201cconnection failed\u201d even though my internet is fine.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-07A210",
+    "text": "Docker containers keep restarting randomly when I run the payments stack locally\u2014no error logs either.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B66B3D",
+    "text": "VS Code's Git integration is broken; it won't let me commit or push anything to the repo.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AB6FBD",
+    "text": "Nexus is throwing 403 errors when I try to deploy artifacts\u2014my permissions look correct though.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E83354",
+    "text": "Helix is showing duplicate alerts for the same incident\u2014can someone clean up the queue?",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6A426E",
+    "text": "Zoom screen sharing keeps freezing for everyone in the call except me\u2014tried restarting but no luck.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-520F3E",
+    "text": "Okta Verify won't install on my new iPhone\u2014just says \u201cfailed to verify device\u201d after the QR code.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-FDA895",
+    "text": "Slack keeps logging me out every few hours\u2014really annoying when I'm in the middle of debugging.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-EA00AF",
+    "text": "I need the latest VS Code Insiders build installed for testing the new payments API.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-51F4EC",
+    "text": "Docker won't start at all\u2014just shows a blank error message when I try to launch it.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6565BC",
+    "text": "Nexus is missing the latest payments artifact\u2014can someone redeploy it from CI?",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F5CB65",
+    "text": "Helix is sending alerts to the wrong on-call rotation\u2014my team isn't on duty this week.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-67AD0F",
+    "text": "Zoom keeps defaulting to the wrong audio device\u2014can't figure out how to change it permanently.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2C79AA",
+    "text": "Okta Verify is stuck on \u201cLoading\u201d after I updated my phone\u2014can't log in to anything.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BEC12B",
+    "text": "Slack won't let me react to messages\u2014clicking emojis does nothing.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-756C32",
+    "text": "JetBrains GoLand won't open any projects\u2014just crashes with a null pointer error.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CAF9B3",
+    "text": "Docker keeps saying \u201cno space left on device\u201d even though I have 50GB free.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-295415",
+    "text": "VS Code's terminal is broken\u2014won't recognize any commands, just says \u201ccommand not found.\u201d",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A9A37A",
+    "text": "Nexus auth is working in the browser but not in the CLI\u2014getting 401 errors when I try to pull.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A82C3F",
+    "text": "Helix is showing resolved alerts as still active\u2014can someone force a sync?",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-239649",
+    "text": "Zoom keeps muting me automatically when I join meetings\u2014no idea why.",
+    "intent": "software_issue",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-732A12",
+    "text": "Hey, just started today\u2014can someone help me get my laptop set up and enrolled in MDM? The box is here but no instructions.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4CE676",
+    "text": "My Okta account isn't letting me log in, says \u201cuser not found\u201d even though HR said it was ready.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-12B3A7",
+    "text": "Need my Slack account ASAP so I can join the team channels\u2014been sitting here for an hour without access.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8847C9",
+    "text": "VPN profile isn't working, keeps throwing an error about invalid credentials. Can someone reset it or walk me through the setup?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F9C52A",
+    "text": "HR mentioned I'd get a badge today but nothing's arrived\u2014who do I ping for this?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3D5389",
+    "text": "Trying to access Prism for the first time but getting a permissions error. Do I need someone to grant read access?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CF60C6",
+    "text": "Helix on-call rotation says I'm on the schedule but I can't log in\u2014is there a separate setup step?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C9166F",
+    "text": "Laptop arrived but it's not imaged with the standard Veridian setup. Can IT re-image it or guide me through manual config?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BFABD4",
+    "text": "My Nexus credentials aren't working\u2014says my account doesn't exist. Did HR miss something?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2D71CA",
+    "text": "Just got my laptop but the MDM enrollment prompt keeps failing. Tried restarting but no luck.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BF43D4",
+    "text": "Slack says \u201caccount pending approval\u201d\u2014how long does this usually take? Need to join #prod-payments ASAP.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A3A987",
+    "text": "VPN profile was sent but the config file is corrupted. Can someone resend it or help me fix it?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-540BE1",
+    "text": "Badge printer in the lobby isn't working\u2014tried twice and it just spits out blank cards. Who handles this?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5942E7",
+    "text": "Helix shows me as \u201cinactive\u201d in the on-call rotation despite HR confirming I'm in the system. Help?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0E39BE",
+    "text": "Prism access is stuck on \u201crequest pending\u201d\u2014who approves these? Need it for my first project.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F1B059",
+    "text": "Laptop came with a generic admin account but no Veridian profile. How do I switch to the corporate setup?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F656D7",
+    "text": "Okta keeps asking for MFA but I haven't set it up yet. Is there a way to bypass or reset it?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-67B363",
+    "text": "Slack invite link expired\u2014can someone resend it or add me manually?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D8B8DB",
+    "text": "VPN says \u201cprofile not found\u201d when I try to connect. Did I miss a step in the setup guide?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-65A6DC",
+    "text": "Badge still hasn't arrived and I need to get into the secure areas for my onboarding. Urgent!",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-40007D",
+    "text": "Helix on-call schedule shows me as \u201cunassigned\u201d\u2014do I need to request access separately?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B26DB3",
+    "text": "Prism read access is approved but I'm getting a 403 error. Is there a cache or cookie I need to clear?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7DEA9D",
+    "text": "Laptop MDM enrollment keeps timing out. Tried on both Wi-Fi and ethernet\u2014same issue.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0D1C1A",
+    "text": "Nexus login says \u201cinvalid credentials\u201d even though I copied them directly from the welcome email.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-43E4D9",
+    "text": "Slack account was created but I'm not in any of the team channels. Can someone add me to #eng and #prod-payments?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A60DD1",
+    "text": "VPN profile installed but connection drops after 30 seconds. Firewall issue or misconfiguration?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0CA735",
+    "text": "Badge was printed but it's not scanning at any of the doors. Do I need to register it somewhere?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-82DA26",
+    "text": "Helix on-call tool says I'm \u201cnot eligible\u201d for the rotation. Did HR set up my permissions wrong?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-397E4D",
+    "text": "Prism access is granted but the datasets I need are still locked. Who manages granular permissions?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D90DBF",
+    "text": "Laptop arrived with a dead battery and no charger. Can IT send a replacement ASAP?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-452278",
+    "text": "Okta MFA setup keeps failing\u2014QR code won't scan and the manual entry option isn't working.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-FA792A",
+    "text": "Slack says \u201caccount restricted\u201d when I try to message anyone. Is this a new-hire limitation?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7A649D",
+    "text": "VPN profile works on my phone but not my laptop. Same credentials, different error messages.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-FBE4A3",
+    "text": "Badge was issued but the photo is from the wrong person. How do I get this fixed?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-30908F",
+    "text": "Helix shows me as \u201cactive\u201d but I can't see any on-call schedules. Do I need to sync something?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AE2359",
+    "text": "Prism read access is approved but I'm getting \u201cinsufficient privileges\u201d on specific tables. Help?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-994022",
+    "text": "Laptop MDM enrollment says \u201cdevice already registered\u201d but this is my first time setting it up.",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BAE232",
+    "text": "Nexus login worked once but now it's locked. Did I trigger a security flag?",
+    "intent": "onboarding",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D04CD8",
+    "text": "Hey, I just tried to process a payment for a new customer and got a 503 error\u2014can someone check if prod-payments is down?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3618C2",
+    "text": "Noticed a bunch of 5xx errors in the Stripe webhook logs for the last 30 mins\u2014anyone else seeing this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-796930",
+    "text": "A customer just emailed saying they were charged twice for the same invoice\u2014can we verify if this is a prod-payments issue?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-40701A",
+    "text": "The P99 latency for prod-payments spiked to 4.2s around 2:15 PM\u2014any idea what's going on?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AEF8E5",
+    "text": "Webhooks from Braintree are taking over 10 minutes to process\u2014this is causing delays in our subscription updates.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-733231",
+    "text": "Getting reports from sales that payments are failing with \"internal server error\"\u2014could this be prod-payments?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-94743C",
+    "text": "Helix is showing a critical alert for prod-payments with a 50% error rate\u2014need someone to look ASAP.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-67389F",
+    "text": "A customer just called saying their payment went through but the subscription wasn't activated\u2014webhook issue maybe?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-04B252",
+    "text": "Prism shows a spike in failed transactions starting at 3:45 PM\u2014anyone investigating this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-ECDC38",
+    "text": "I'm seeing duplicate charges in the logs for the same transaction ID\u2014could this be a prod-payments bug?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-980EDB",
+    "text": "Stripe is reporting timeouts when calling our webhook endpoint\u2014anyone else experiencing this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2A0A28",
+    "text": "The payment service dashboard shows a sudden drop in successful transactions\u2014is this a known issue?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8D4091",
+    "text": "A high-value customer just complained their payment failed with a 500 error\u2014urgent fix needed.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E48403",
+    "text": "Helix is paging for prod-payments with \"high latency and error rates\"\u2014who's on call for this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-628E88",
+    "text": "Webhooks from Braintree are being retried multiple times\u2014this is causing duplicate entries in our DB.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7726D9",
+    "text": "I tried to refund a customer and got a 502 error\u2014is prod-payments having issues?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-DB4803",
+    "text": "Prism metrics show a 30% increase in failed payments in the last hour\u2014anyone looking into this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-827D50",
+    "text": "A customer's payment was declined but the funds were still held\u2014could this be a prod-payments glitch?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0E3604",
+    "text": "The Nexus build for prod-payments failed last night\u2014could this be related to the current issues?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BA4218",
+    "text": "Sales is getting complaints about payments timing out\u2014can we check the prod-payments service?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5428D0",
+    "text": "I'm seeing 504 errors when hitting the payment API\u2014is this a widespread issue?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D0F02C",
+    "text": "A customer's subscription was canceled but the payment still went through\u2014webhook delay maybe?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A06CD3",
+    "text": "Helix just sent an alert for \"unusually high 5xx errors\" in prod-payments\u2014who's handling this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9DBF2F",
+    "text": "Stripe webhooks are stuck in \"pending\" status for over an hour\u2014this is causing billing delays.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5FDD2C",
+    "text": "The payment service is responding with 500 errors for all requests\u2014need an immediate fix.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-611404",
+    "text": "A customer was charged three times for the same transaction\u2014can we investigate ASAP?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2710CC",
+    "text": "Prism shows a sharp drop in successful webhook deliveries\u2014any idea what's causing this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F6FC03",
+    "text": "I'm getting \"service unavailable\" when trying to process a payment\u2014is prod-payments down?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-523496",
+    "text": "Sales just reported multiple customers seeing \"payment failed\" errors\u2014urgent help needed.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A9FA3B",
+    "text": "Braintree webhooks are being delayed by over 15 minutes\u2014this is breaking our workflow.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-48DEDA",
+    "text": "The payment service latency is through the roof\u2014anyone know what's happening?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B986D4",
+    "text": "A customer's payment was processed but the invoice wasn't generated\u2014webhook issue?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-50CEC0",
+    "text": "Helix is showing a critical alert for prod-payments with \"unexpected failures\"\u2014who's on this?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F584C3",
+    "text": "Stripe is retrying webhooks for the same transaction multiple times\u2014causing duplicate charges.",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B5FF68",
+    "text": "I tried to void a transaction and got a 503 error\u2014is the payment service degraded?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-87CAA2",
+    "text": "Prism metrics show a spike in 5xx errors from prod-payments\u2014anyone investigating?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AB3226",
+    "text": "A customer's payment was successful but the subscription status didn't update\u2014webhook delay?",
+    "intent": "payments_incident",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5300EB",
+    "text": "Hey, can I get reimbursed for the AWS Certified Solutions Architect course I took last month? It was $300 and I've already uploaded the receipt to Expensify.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BACB0C",
+    "text": "I need approval for a new ergonomic chair since my back's been killing me after WFH full-time\u2014doctor's note attached if needed.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-DF8CE4",
+    "text": "Quick question: is the monthly $50 internet stipend still a thing? If so, how do I submit for it?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-999DAD",
+    "text": "Just signed up for the Datadog Pro plan for monitoring prod-payments\u2014can I expense the $299/month subscription?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CFF4F2",
+    "text": "I bought a standing desk converter for my home office and want to get reimbursed\u2014total was $249, receipt's in the system.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-BC83D3",
+    "text": "Can someone approve my request for the GitHub Copilot subscription? It's been a game-changer for Nexus PR reviews.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0E2074",
+    "text": "I attended the KubeCon virtual conference last week and need to expense the $199 ticket\u2014let me know if you need the agenda.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9BA35B",
+    "text": "My monitor died and I had to grab a new one ASAP\u2014can I get reimbursed for the $220 Dell UltraSharp?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-960435",
+    "text": "I'm taking an advanced SQL course to better query Prism, and the $400 fee is already paid\u2014how do I submit this?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CE04A3",
+    "text": "Need approval for a noise-canceling headset since my apartment's construction noise is making Helix alerts impossible to hear.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-45205F",
+    "text": "I bought a mechanical keyboard for coding (Logitech MX) and want to expense it\u2014$169, receipt uploaded.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-929FE6",
+    "text": "Can I get reimbursed for the Notion AI add-on? It's $10/month and helps with internal docs.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3A00F1",
+    "text": "I signed up for the O'Reilly learning platform to prep for the Nexus migration\u2014$499/year, need approval.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-0E504A",
+    "text": "My home office router is ancient and keeps dropping\u2014can I expense a new mesh system (~$250)?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-955B98",
+    "text": "I need to replace my work laptop's trackpad and want to expense the $89 repair\u2014Apple Store receipt attached.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-78C2E0",
+    "text": "Just got a new monitor arm to free up desk space\u2014$129, can I submit this for reimbursement?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1689A7",
+    "text": "I took the Certified Kubernetes Administrator exam and passed\u2014can I expense the $375 fee?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5E7469",
+    "text": "My desk is too low and my wrists hurt\u2014can I get a height-adjustable desk (~$350) approved?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6BD04C",
+    "text": "I bought a second monitor for better multitasking (Prism dashboards + Helix alerts)\u2014$199, need reimbursement.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4E091A",
+    "text": "Can I expense the $25/month Figma subscription I'm using for internal design mockups?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6E53D5",
+    "text": "I attended a local AWS meetup and want to expense the $30 ticket\u2014slides and agenda included in the request.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8A4B2E",
+    "text": "My chair is falling apart\u2014can I get a new one ASAP? Will send the $200 receipt once approved.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-339D77",
+    "text": "I signed up for the Postman Pro plan to test our APIs\u2014$12/month, need approval.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9F1010",
+    "text": "I bought a vertical mouse to reduce wrist strain\u2014$79, can I get reimbursed?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AC0A19",
+    "text": "I need to expense the $150 fee for the Data Council conference I attended last month.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6E7003",
+    "text": "My internet bill spiked due to extra bandwidth for remote work\u2014can I get the $75 difference reimbursed?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E674FF",
+    "text": "I took an advanced Python course to improve our Nexus automation scripts\u2014$250, need approval.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-59E09D",
+    "text": "I bought a laptop stand to improve posture\u2014$49, can I expense this?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B1360F",
+    "text": "I need to replace my work headphones (they broke mid-Helix call)\u2014$149, receipt attached.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5D6EE3",
+    "text": "I signed up for the Sentry Pro plan for error tracking\u2014$29/month, need budget approval.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3CD59A",
+    "text": "I took a Udemy course on Terraform to better manage our infra\u2014$19, can I expense it?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9574CC",
+    "text": "I bought a footrest to improve ergonomics\u2014$35, need reimbursement.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2DC8F9",
+    "text": "I attended a local cybersecurity workshop and want to expense the $50 ticket.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-76ED0C",
+    "text": "I need to expense the $99 fee for the annual GitHub Universe virtual pass.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1A740B",
+    "text": "My desk lamp broke and I got a new one with better lighting\u2014$59, can I submit this?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-224845",
+    "text": "I took a course on advanced Prism queries\u2014$129, need approval.",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-CE938E",
+    "text": "I bought a new mousepad with wrist support\u2014$25, can I expense it?",
+    "intent": "expense_request",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-277148",
+    "text": "Hey, what's the SLA for a Sev-1 incident in prod-payments? Need to know if we're still within the window for the current outage.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E9BC98",
+    "text": "How do I request a new Jira project for my team? The current one is getting too cluttered and I'd like a fresh space.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-C169F5",
+    "text": "Can someone point me to the latest WiFi password for the 5th floor? The one I have isn't working anymore.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8FDB8E",
+    "text": "I'm trying to access Nexus but keep getting a 403 error\u2014do I need special permissions or is the service down?",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-856E2E",
+    "text": "What's the process for getting a new laptop? Mine's running super slow and IT said it's time for a replacement.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4AA67B",
+    "text": "Is there a guide for setting up Helix alerts for my team's services? I want to make sure we're covered during on-call rotations.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-36AC9F",
+    "text": "How do I submit a request to get access to Prism? I need to pull some data for a report but don't have permissions.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7E04E4",
+    "text": "What's the policy on using personal devices for work? I'd like to use my phone for Slack but want to make sure it's allowed.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-9CEC41",
+    "text": "Can someone remind me how to reset my VPN password? I haven't done it in a while and don't want to lock myself out.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-58AF7A",
+    "text": "Is there a way to check the status of my IT ticket? I submitted one last week about my monitor not working and haven't heard back.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A1D797",
+    "text": "What's the best way to report a phishing email? I got one this morning that looks pretty convincing.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-AAC22D",
+    "text": "How do I get admin rights on my work laptop? I need to install some dev tools but keep getting permission errors.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E55F37",
+    "text": "Is there a list of approved software we can install? I want to make sure I'm not violating any policies before downloading something new.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E40531",
+    "text": "Can someone explain the difference between Sev-1 and Sev-2 incidents? I'm new to the on-call rotation and want to make sure I understand.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2543FC",
+    "text": "What's the process for getting a new security badge? Mine stopped working this morning and I can't get into the office.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-8DEB8A",
+    "text": "How do I request a new email alias for my team? We're rebranding and need something more specific.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-338431",
+    "text": "Is there a way to check if my laptop is due for a refresh? I've had this one for a while and want to know if I'm eligible.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-1ED813",
+    "text": "What's the policy on working from home? I need to stay home tomorrow but want to make sure I'm following the rules.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-52865D",
+    "text": "Can someone help me set up my new laptop? I got it yesterday but haven't had time to migrate everything over.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-25EC4E",
+    "text": "How do I get access to the shared drive for my department? I need to pull some files but don't have permissions.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3AF050",
+    "text": "What's the best way to contact IT after hours? I'm having an issue with my laptop but it's outside of normal business hours.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-3C926D",
+    "text": "Is there a guide for setting up MFA on my accounts? I want to make sure I'm following security best practices.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-7E106C",
+    "text": "How do I request a new software license for my team? We need to upgrade to the latest version but aren't sure how to proceed.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-2C72BE",
+    "text": "Can someone remind me how to connect to the printer on the 3rd floor? I keep getting an error when I try to print.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-4C1832",
+    "text": "What's the policy on using personal cloud storage for work files? I want to make sure I'm not violating any security rules.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B2914C",
+    "text": "How do I check the status of my IT request? I submitted one last week about my keyboard not working and haven't heard back.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-F8B51A",
+    "text": "Is there a way to get a temporary admin password for my laptop? I need to install some software but don't have the rights.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-EAE1CC",
+    "text": "What's the process for getting a new phone? Mine is broken and I need a replacement ASAP.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-A03522",
+    "text": "Can someone help me troubleshoot my WiFi connection? I keep getting disconnected and it's making it hard to work.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-889587",
+    "text": "How do I get access to the internal wiki? I need to find some documentation but don't have permissions.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-37CCA4",
+    "text": "What's the best way to report a security concern? I noticed something suspicious on my laptop and want to make sure it's checked out.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-E1F066",
+    "text": "Is there a guide for setting up my new laptop? I got it today but haven't had time to configure everything.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-6B5F33",
+    "text": "How do I request a new monitor for my desk? The one I have is flickering and it's giving me a headache.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-B3217F",
+    "text": "What's the policy on using personal email for work? I want to make sure I'm not violating any rules.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-07BF88",
+    "text": "Can someone remind me how to reset my password for the internal portal? I haven't done it in a while and don't want to get locked out.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-5FF22E",
+    "text": "Is there a way to check if my laptop is up to date with security patches? I want to make sure I'm following best practices.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-D42D3F",
+    "text": "How do I get access to the shared calendar for my team? I need to schedule a meeting but don't have permissions.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-294405",
+    "text": "What's the process for getting a new security token? Mine stopped working and I can't log into some of our systems.",
+    "intent": "general_question",
+    "priority": "P2"
+  },
+  {
+    "id": "SYN-33E809",
+    "text": "Can someone help me set up my new laptop? I got it yesterday but haven't had time to migrate my files over.",
+    "intent": "general_question",
+    "priority": "P2"
+  }
+]
