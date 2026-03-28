@@ -47,6 +47,23 @@ measures what the classifier saves: tool calls, LLM calls, and latency.
 
 ---
 
+## Veridian Systems — internal terminology
+
+Veridian Systems is the fictional B2B SaaS company used throughout the demo.
+The following internal tool names appear in tickets, prompts, and training data:
+
+| Term | Meaning |
+|---|---|
+| **Nexus** | Internal artifact repository |
+| **Prism** | Internal data warehouse |
+| **Helix** | Slack-based on-call rotation tool |
+| **prod-payments** | Most critical service — any incident is always P1 |
+
+These names are fixed across all code, data files, and prompts. Do not substitute
+alternative names (e.g. "Artifactory" for Nexus).
+
+---
+
 ## Prerequisites
 
 - Python 3.12+

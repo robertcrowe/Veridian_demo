@@ -174,6 +174,16 @@ st.caption(
     "Both agents run on every query — compare tool calls, latency, and routing explainability."
 )
 
+with st.expander("Veridian internal terminology"):
+    st.markdown(
+        "| Term | Meaning |\n"
+        "|---|---|\n"
+        "| **Nexus** | Artifact repository |\n"
+        "| **Prism** | Data warehouse |\n"
+        "| **Helix** | On-call rotation tool |\n"
+        "| **prod-payments** | Most critical service (always P1) |"
+    )
+
 if not api_key:
     st.warning("Enter your Mistral API key in the sidebar to begin.")
     st.stop()
