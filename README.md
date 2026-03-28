@@ -253,15 +253,13 @@ To move from this demo to a production system:
 
 ## Contributing
 
-This project is structured as a self-contained Mistral Cookbook recipe. If you extend
-it — better training data, additional intent classes, real tool integrations, or a
-Forge deployment walkthrough — consider submitting it to the Mistral Cookbook:
+Contributions are welcome. To contribute:
 
-> **Contributing guide:** https://github.com/mistralai/cookbook/blob/main/CONTRIBUTING.md
-
-The cookbook accepts notebooks and Python scripts that demonstrate Mistral API features
-with real, runnable code. This demo would fit under `mistral/finetuning/` or a new
-`mistral/agents/intent-routing/` directory.
+1. Fork the repository and create a feature branch.
+2. Make your changes — better training data, additional intent classes, real tool
+   integrations, improved evaluation, or bug fixes.
+3. Ensure `make test` passes (unit tests require no API key).
+4. Open a pull request with a clear description of what changed and why.
 
 ---
 

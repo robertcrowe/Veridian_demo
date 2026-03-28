@@ -4,7 +4,7 @@ Base IT support agent — no classifier pre-routing.
 The agent receives the user message and calls the LLM with the full tool set.
 The model decides which tools to call and figures out the intent itself.
 
-This is the baseline for the demo comparison (before Classifier Factory fine-tuning).
+This is the baseline for the demo comparison (no classifier pre-routing).
 """
 
 from __future__ import annotations
