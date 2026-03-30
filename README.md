@@ -158,7 +158,7 @@ system prompt:
 The adapted agent always receives exactly **2 tools**: `create_ticket` and
 `get_escalation_policy`. The base agent receives all **3** (plus `search_knowledge_base`).
 `search_knowledge_base` is withheld because the classifier has already determined the
-category — KB lookup is redundant.
+category — KB lookup is mostly redundant.
 
 ### Layer 3 — Agentic loop
 
@@ -186,9 +186,6 @@ integration tests are automatically skipped unless `data/endpoint_name.txt` exis
 ---
 
 ## What this demo actually simulates vs. what Forge adds
-
-This demo runs entirely on La Plateforme shared infrastructure. It is an honest
-simulation of a Forge-based deployment, not the real thing.
 
 | Aspect | This demo | With Forge |
 |---|---|---|
@@ -264,7 +261,7 @@ To move from this demo to a production system:
 | **Tool call reduction %** | Avg calls per query: base vs adapted | `(base_tool_calls - adapted_tool_calls) / base_tool_calls` — computed in `03_agent_demo.ipynb` |
 | **Mean time to resolution** | Wall-clock from ticket open to close | Requires real ticket system integration |
 | **Ticket deflection rate** | % of queries resolved without creating a ticket | `ticket_id is None` in the result dict |
-| **Cost per request** | Token cost for full query × request volume | La Plateforme usage dashboard; `llm_calls` in result dict as a proxy |
+| **Cost per request** | Token cost for full query × request volume | Mistral/Together APIs; `llm_calls` in result dict as a proxy |
 
 ---
 
