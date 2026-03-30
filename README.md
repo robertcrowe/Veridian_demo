@@ -181,7 +181,7 @@ uv run pytest -m integration -v
 
 Unit tests (43) mock the Mistral client entirely. Integration tests exercise the live
 API using `mistral-small-latest` to keep costs low (~$0.01 per run). The SFT classifier
-integration tests are automatically skipped unless `data/classifier_model_id.txt` exists.
+integration tests are automatically skipped unless `data/endpoint_name.txt` exists.
 
 ---
 

@@ -48,7 +48,7 @@ _EXAMPLES = [
 # ---------------------------------------------------------------------------
 
 def _get_classifier_model_id() -> str | None:
-    p = _DATA_DIR / "classifier_model_id.txt"
+    p = _DATA_DIR / "endpoint_name.txt"
     if p.exists():
         val = p.read_text().strip()
         return val or None

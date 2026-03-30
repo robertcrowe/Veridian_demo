@@ -1,6 +1,6 @@
 """
 Integration tests — require a live MISTRAL_API_KEY in mistral-it-agent/.env.
-Classifier tests additionally require TOGETHER_API_KEY and data/classifier_model_id.txt.
+Classifier tests additionally require TOGETHER_API_KEY and data/endpoint_name.txt.
 
 All tests are automatically skipped when the required keys are not set.
 
@@ -12,7 +12,7 @@ Run alongside the full suite:
 
 Tests use mistral-small-latest (cheap, supports function calling) rather than
 mistral-large-latest so the suite stays inexpensive to run regularly.
-The SFT classifier tests additionally require data/classifier_model_id.txt
+The SFT classifier tests additionally require data/endpoint_name.txt
 (written by 02_train_classifier.ipynb after a successful training job) and
 TOGETHER_API_KEY to be set in .env.
 """
@@ -158,17 +158,17 @@ def test_adapted_agent_uses_fewer_tools_than_base(client):
 
 # ---------------------------------------------------------------------------
 # 5. Fine-tuned classifier via Together.ai
-#    Skipped unless classifier_model_id.txt exists AND TOGETHER_API_KEY is set
+#    Skipped unless endpoint_name.txt exists AND TOGETHER_API_KEY is set
 # ---------------------------------------------------------------------------
 
-_CLASSIFIER_MODEL_ID_FILE = _DATA_DIR / "classifier_model_id.txt"
+_ENDPOINT_NAME_FILE = _DATA_DIR / "endpoint_name.txt"
 
 
 @pytest.fixture(scope="module")
 def classifier_model_id():
-    if not _CLASSIFIER_MODEL_ID_FILE.exists():
-        pytest.skip("data/classifier_model_id.txt not found — run 02_train_classifier.ipynb first")
-    return _CLASSIFIER_MODEL_ID_FILE.read_text().strip()
+    if not _ENDPOINT_NAME_FILE.exists():
+        pytest.skip("data/endpoint_name.txt not found — run 02_train_classifier.ipynb first")
+    return _ENDPOINT_NAME_FILE.read_text().strip()
 
 
 @pytest.fixture(scope="module")
